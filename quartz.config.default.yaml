@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: quartz.jzhao.xyz
+  baseUrl: christelle1208.github.io/robotics-wiki-v2
   ignorePatterns:
     - private
     - templates
