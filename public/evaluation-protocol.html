@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>evaluation-protocol</title><meta charset="utf-8"/><link rel="preload" href="./index-47d9ba67.css" as="style"/><link rel="preload" href="./prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="evaluation-protocol"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="evaluation-protocol"/><meta name="twitter:description" content="Evaluation Protocol — Robot Learning Policies Evaluating a robot learning policy is not just about measuring success rate on the training distribution."/><meta property="og:description" content="Evaluation Protocol — Robot Learning Policies Evaluating a robot learning policy is not just about measuring success rate on the training distribution."/><meta property="og:image:alt" content="Evaluation Protocol — Robot Learning Policies Evaluating a robot learning policy is not just about measuring success rate on the training distribution."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/evaluation-protocol"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/evaluation-protocol"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="Evaluation Protocol — Robot Learning Policies Evaluating a robot learning policy is not just about measuring success rate on the training distribution."/><meta name="generator" content="Quartz"/><link href="./index-47d9ba67.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/evaluation-protocol-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/evaluation-protocol-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/evaluation-protocol-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="evaluation-protocol" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href=".">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-27" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-27" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>evaluation-protocol</a></div></nav><h1 class="article-title">evaluation-protocol</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-24T15:02:46.000Z">Jun 24, 2026</time><span>13 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="evaluation-protocol--robot-learning-policies">Evaluation Protocol — Robot Learning Policies<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#evaluation-protocol--robot-learning-policies" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Evaluating a robot learning policy is not just about measuring success rate on the training distribution. A policy that achieves 95% in-distribution success may completely fail when an object is 5cm further away, or when a lamp is turned on. This page defines a standardized evaluation protocol that measures performance across multiple axes to give an honest picture of what a policy <em>actually</em> does.</p>
+<p>This protocol is designed to be algorithm-agnostic — it applies equally to SAC, ACT, SmolVLA, and any other approach, enabling fair cross-algorithm comparison.</p>
+<p>→ See <a href="./decision-guide" class="internal internal-link" data-slug="decision-guide">decision-guide</a> for training guidance. See <a href="./overview" class="internal internal-link" data-slug="overview">overview</a> for the three paradigm families.</p>
+<hr/>
+<h2 id="glossary">Glossary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#glossary" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>In-Distribution — conditions that match the training setup exactly (same object positions, orientations, lighting)</td></tr><tr><td><strong>OOD</strong></td><td>Out-of-Distribution — conditions not seen during training</td></tr><tr><td><strong>N</strong></td><td>Number of trials run for a given condition</td></tr><tr><td><strong>CI</strong></td><td>Confidence Interval — the range of true success rates consistent with what you observed. A 95% CI means: if you repeated the experiment many times, 95% of those intervals would contain the true rate</td></tr><tr><td><strong>pp</strong></td><td>Percentage points — the unit of a CI width. “±12 pp at 80%” means the true rate is likely between 68% and 92%</td></tr></tbody></table></div>
+<hr/>
+<h2 id="why-a-standardized-protocol-matters">Why a standardized protocol matters<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#why-a-standardized-protocol-matters" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Without a protocol, results are incomparable:</p>
+<ul>
+<li>“90% success” means nothing if it was measured on 10 trials in ideal conditions</li>
+<li>A policy that achieves 85% with fixed objects but 20% with varied positions is not as good as one that achieves 75% on both</li>
+<li>Generalization to new objects is the key advantage of VLAs — but it only shows up if you test for it</li>
+</ul>
+<p>The goal is not just a single number, but a <strong>profile</strong> across multiple axes.</p>
+<hr/>
+<h2 id="evaluation-axes">Evaluation axes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#evaluation-axes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="axis-1--in-distribution-id">Axis 1 — In-Distribution (ID)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-1--in-distribution-id" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><em>Does the policy work on the exact conditions it was trained/tuned for?</em></p>
+</blockquote>
+<p>This is the baseline. If the policy can’t pass this, nothing else matters.</p>
+<p><strong>Conditions:</strong> exact training distribution — same objects, same positions (sampled from training range), same lighting, same camera setup.</p>
+<p><strong>What to measure:</strong> success rate, execution time, trajectory smoothness (optional).</p>
+<p><strong>Number of trials:</strong> minimum 50. Use 100+ for publication-quality results. Stratify across the training position range (don’t just test the center).</p>
+<hr/>
+<h3 id="axis-2--near-out-of-distribution-near-ood">Axis 2 — Near Out-of-Distribution (near-OOD)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-2--near-out-of-distribution-near-ood" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><em>Does the policy generalize to small, realistic variations it wasn’t trained on?</em></p>
+</blockquote>
+<p>These are the variations that will inevitably appear in real deployment even if you try to replicate training conditions exactly.</p>
+<p><strong>Conditions to test:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Variation</th><th>How to test</th><th>Notes</th></tr></thead><tbody><tr><td>Object position — unseen grid squares</td><td>Place object in the 4 held-out grid squares (within the same 24×16cm workspace)</td><td>Tests spatial interpolation within the known workspace</td></tr><tr><td>Object orientation — random angles</td><td>Place the cube at a random angle not snapped to 0° or 45° (e.g. 22°, 67°)</td><td>Cube symmetry means 0°/90°/180° are equivalent faces — arbitrary angles are the true OOD condition</td></tr><tr><td>Slight lighting change (+/- 30% ambient)</td><td>Change room lighting or time of day</td><td>Keep object and camera positions identical</td></tr><tr><td>One distractor object added</td><td>Place one irrelevant object in the workspace</td><td>Use object clearly distinct from the target</td></tr><tr><td>Camera position shift (1–2cm)</td><td>Move camera slightly from trained position</td><td>Record exact offset for reproducibility</td></tr></tbody></table></div>
+<p><strong>Number of trials:</strong> 30 per condition (5–6 conditions = 150–180 trials total).</p>
+<hr/>
+<h3 id="axis-3--far-out-of-distribution-far-ood">Axis 3 — Far Out-of-Distribution (far-OOD)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-3--far-out-of-distribution-far-ood" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><em>What does the policy do when it encounters conditions very different from training?</em></p>
+</blockquote>
+<p>This tests the limits of generalization. Expected to be lower; the goal is to understand <em>how</em> the policy fails, not just whether it does.</p>
+<p><strong>Conditions to test:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Variation</th><th>How to test</th><th>Notes</th></tr></thead><tbody><tr><td>New object color/texture</td><td>Replace trained object with same shape, different color</td><td>Record whether failure is at approach, grasp, or place phase</td></tr><tr><td>New object shape (same category)</td><td>Replace cube with cylinder or irregular shape</td><td>Note if robot attempts grasp at all</td></tr><tr><td>Multiple distractors (3–5)</td><td>Add several irrelevant objects of varied types</td><td>Note whether robot ignores them or fixates on them</td></tr><tr><td>Strong lighting change</td><td>Test under spotlight/shadow vs training lighting</td><td>Document lighting setup precisely</td></tr><tr><td>Object position outside the training grid</td><td>Place object beyond the 24×16cm boundary</td><td>Quantifies spatial extrapolation vs interpolation</td></tr><tr><td>Language instruction paraphrase (VLA only)</td><td>“Pick up the X” → “Grab the X” / “Take the X”</td><td>VLA-specific: tests instruction robustness</td></tr><tr><td>New object category (VLA only)</td><td>Replace with semantically related but untrained object</td><td>Cross-category generalization via pretrained knowledge</td></tr></tbody></table></div>
+<p><strong>Number of trials:</strong> 20 per condition. These results are <strong>qualitative/characterization only</strong> — sample size is insufficient for inferential statistics (see Statistical Reporting below). Focus on failure mode, not success rate.</p>
+<hr/>
+<h3 id="axis-4--robustness-to-perturbations">Axis 4 — Robustness to perturbations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-4--robustness-to-perturbations" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><em>Does the policy recover when something unexpected happens mid-execution?</em></p>
+</blockquote>
+<p>Real deployments involve unexpected events. A policy that achieves 95% in clean conditions but cannot recover from a light perturbation is less deployable than a 80% policy that recovers gracefully.</p>
+<p><strong>Perturbation types to test:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Perturbation</th><th>Method</th><th>Recovery criterion</th></tr></thead><tbody><tr><td><strong>Object slip</strong> (grasp disturbed mid-air)</td><td>Gently push object during grasp phase</td><td>Does the robot re-attempt grasp?</td></tr><tr><td><strong>Object displacement</strong> (repositioned mid-task)</td><td>Move object 5cm while robot is approaching</td><td>Does the robot track the new position?</td></tr><tr><td><strong>Temporary occlusion</strong></td><td>Block camera view for 1 second</td><td>Does the policy resume on vision recovery?</td></tr><tr><td><strong>Human intervention</strong></td><td>Briefly hold the robot arm during execution</td><td>Does it resume smoothly?</td></tr><tr><td><strong>Missed grasp</strong> (object not picked up)</td><td>Let gripper close on empty air</td><td>Does the robot detect failure and retry?</td></tr></tbody></table></div>
+<p><strong>Protocol:</strong></p>
+<ol>
+<li>Run 20 trials per perturbation type</li>
+<li>For each trial, record: (a) did the robot detect the perturbation?, (b) did it recover?, (c) what was the final task success?</li>
+<li>Report: perturbation recovery rate separately from task success rate</li>
+</ol>
+<hr/>
+<h3 id="axis-5--consistency-and-reliability">Axis 5 — Consistency and reliability<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-5--consistency-and-reliability" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote>
+<p><em>Is the policy consistently good, or does it have high variance?</em></p>
+</blockquote>
+<p>A policy with 80% mean success but ±30% standard deviation across runs is less reliable than a 75% policy with ±5% deviation.</p>
+<p><strong>What to measure:</strong></p>
+<ul>
+<li><strong>Success rate per grid square</strong>: break down success by position within the training grid. Reveals spatial blind spots.</li>
+<li><strong>Success rate vs episode index</strong>: does performance drop across a session (fatigue effects, actuator heating, visual drift)?</li>
+<li><strong>Failure mode classification</strong>: categorize failures into: (a) grasping failure, (b) placement failure, (c) approach failure, (d) perception failure, (e) timeout. The distribution tells you where to focus improvement.</li>
+</ul>
+<hr/>
+<h2 id="standard-metrics">Standard metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#standard-metrics" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Metric</th><th>Definition</th><th>When to use</th></tr></thead><tbody><tr><td><strong>Success rate</strong></td><td>Fraction of trials where task completes fully</td><td>Primary metric for all evaluations</td></tr><tr><td><strong>Progress score</strong></td><td>Fraction of task stages completed (0–1)</td><td>Better than binary for long-horizon tasks</td></tr><tr><td><strong>Recovery rate</strong></td><td>Fraction of perturbation trials where policy recovers</td><td>Axis 4 specifically</td></tr><tr><td><strong>Execution time</strong></td><td>Mean time to task completion in successful trials</td><td>Efficiency comparison</td></tr><tr><td><strong>Trajectory smoothness</strong></td><td>Mean jerk across execution</td><td>Optional; proxy for control quality</td></tr><tr><td><strong>Failure mode breakdown</strong></td><td>% of failures attributable to each failure type</td><td>Diagnostic metric for improvement</td></tr></tbody></table></div>
+<hr/>
+<h2 id="statistical-reporting">Statistical reporting<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#statistical-reporting" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Never report a success rate without saying how many trials it came from. “83% success” measured on 12 trials is very different from 83% on 100 trials — the first could plausibly be anywhere from 55% to 95% true success rate.</p>
+<p><strong>How to read the table below:</strong> each cell gives the margin of error (±) around your observed success rate, at 95% confidence. Example: if you run 30 trials and observe 83% success, the true success rate is likely somewhere between 70% and 96% — a ±13 pp margin. This means you cannot confidently distinguish 83% from 75% at that sample size.</p>
+<p><strong>95% CI margin of error by (N, observed success rate):</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>N \ success rate</th><th>60%</th><th>75%</th><th>83%</th><th>90%</th></tr></thead><tbody><tr><td><strong>12</strong> (small batch)</td><td>±27 pp</td><td>±24 pp</td><td>±21 pp</td><td>±16 pp</td></tr><tr><td><strong>20</strong> (far-OOD)</td><td>±21 pp</td><td>±19 pp</td><td>±16 pp</td><td>±13 pp</td></tr><tr><td><strong>30</strong> (near-OOD)</td><td>±17 pp</td><td>±15 pp</td><td>±13 pp</td><td>±11 pp</td></tr><tr><td><strong>50</strong> (ID)</td><td>±13 pp</td><td>±12 pp</td><td>±10 pp</td><td>±8 pp</td></tr><tr><td><strong>100</strong> (publication)</td><td>±9 pp</td><td>±8 pp</td><td>±7 pp</td><td>±6 pp</td></tr></tbody></table></div>
+<p><em>Computed using the Wilson score interval, which is more accurate than the standard formula at small N or extreme proportions.</em></p>
+<p><strong>How to report results depending on how many trials you ran:</strong></p>
+<p><strong>N ≥ 30</strong> — you have enough trials to make a real claim. Report the full number: e.g. <code>83% (25/30) [CI: 70%–96%]</code>. The CI tells the reader exactly how precise your estimate is, and they can compare it against other algorithms with the same format.</p>
+<p><strong>N = 20</strong> — the margin is still ±16–21 pp, which is wide. You can still report the number, but signal clearly that it’s not precise enough for direct comparison. Write something like: <code>75% (15/20) — characterization only</code>. This means: “this tells us roughly what happens in this condition, but don’t read too much into the exact number.”</p>
+<p><strong>N &lt; 20</strong> — the margin is so wide (±27 pp at N=12) that the point estimate is nearly meaningless for comparison. You can still note qualitative observations (“the robot failed every time” or “it mostly succeeded”) — that’s useful. But don’t write <code>58% vs 25%</code> and imply one is meaningfully better than the other.</p>
+<p><strong>For the current SO-100 results</strong> — most OOD cells have N=4–5 (e.g. <code>2/4</code>, <code>1/4</code>), giving a margin of ~±40 pp. Those numbers are directional signals, not measurements. The only cells with any inferential value are the 12-trial ID batches, and even those carry ±21 pp uncertainty.</p>
+<hr/>
+<h2 id="protocol-for-the-so-100-pick-and-place-experiments">Protocol for the SO-100 pick-and-place experiments<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#protocol-for-the-so-100-pick-and-place-experiments" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>This section operationalizes the axes above for the specific experimental setup.</p>
+<h3 id="test-configuration">Test configuration<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#test-configuration" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Robot</td><td>SO-100 (6-DoF)</td></tr><tr><td>Task</td><td>Pick-and-place: grasp object from the ground, place in bin</td></tr><tr><td>Objects</td><td>Cubes of different colors : red, green, yellow</td></tr><tr><td>Camera setup</td><td>Side camera + Wrist camera</td></tr><tr><td>Episode timeout</td><td>60 seconds</td></tr><tr><td>Success criterion</td><td>Cube dropped in the box</td></tr></tbody></table></div>
+<hr/>
+<h3 id="training-zone-definition">Training zone definition<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#training-zone-definition" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The object position space is a <strong>4×4 grid of 6×4 cm squares</strong>, covering a total workspace of <strong>24×16 cm</strong> in front of the robot.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>Total workspace</td><td>24 cm × 16 cm (4×4 grid of 6×4 cm squares)</td></tr><tr><td>Training squares</td><td>12 of 16 squares (75% of grid)</td></tr><tr><td>Held-out squares</td><td>4 of 16 squares (25% of grid) — used as near-OOD evaluation positions</td></tr><tr><td>Training orientations</td><td>0° (majority of demos) and 45°</td></tr><tr><td>Held-out orientations</td><td>Random/arbitrary angles — cube symmetry means 0°/90°/180° are the same face, so near-OOD = any angle not snapped to 0° or 45°</td></tr></tbody></table></div>
+<p><strong>OOD thresholds expressed as % of training coverage:</strong></p>
+<ul>
+<li><strong>Near-OOD (position):</strong> held-out squares are within the same 24×16 cm boundary — the policy has never seen these positions but the workspace is identical. Coverage gap: 25% of the grid.</li>
+<li><strong>Far-OOD (position):</strong> object placed outside the 24×16 cm boundary — full extrapolation beyond the known workspace.</li>
+<li><strong>Near-OOD (orientation):</strong> random angles not snapped to 0° or 45° (e.g. 22°, 67°) — same object, same workspace, but the cube face the robot sees is genuinely new. Note: for a cube, 90°/180° are equivalent to 0°, so these are not OOD.</li>
+<li><strong>Far-OOD (orientation):</strong> random angle combined with OOD position — both axes unseen simultaneously.</li>
+</ul>
+<hr/>
+<h3 id="trial-count-justification">Trial count justification<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#trial-count-justification" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Axis</th><th>N per condition</th><th>Justification</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>50</td><td>At 80% success, Wilson 95% CI = ±12 pp — sufficient for cross-algorithm comparison</td></tr><tr><td><strong>Near-OOD</strong></td><td>30</td><td>Minimum N to detect a 20 pp difference at 80% power between two policies; CI ≈ ±15 pp at 75% success</td></tr><tr><td><strong>Far-OOD</strong></td><td>20</td><td>Characterization only — not inferential. Goal is to identify failure mode, not estimate success rate. Flag all far-OOD results accordingly</td></tr><tr><td><strong>Perturbation</strong></td><td>20</td><td>Same as far-OOD: qualitative characterization of recovery behavior</td></tr></tbody></table></div>
+<p>N = 100+ is recommended for any result intended for publication or formal comparison.</p>
+<hr/>
+<h3 id="model-training-context">Model training context<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#model-training-context" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Comparison is only fair when the training compute behind each model is made explicit. SmolVLA brings a pretrained backbone trained on millions of demonstrations at industrial scale; ACT and SAC are trained from scratch or from a small demo set on standard hardware. These are not equivalent starting points.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Model</th><th>Hardware</th><th>Training time</th><th>Dataset</th><th>Parameters</th></tr></thead><tbody><tr><td><strong>ACT</strong></td><td>1× NVIDIA A10G (AWS g5.2xlarge)</td><td>4h 28m 10s</td><td>~111 demos (Dataset_v4), 100k steps</td><td>~87M</td></tr><tr><td><strong>SmolVLA</strong></td><td>4× NVIDIA A10G (AWS g5.12xlarge)</td><td>2h 41m 01s</td><td>~111 demos (Dataset_v4), 20k steps — <em>full fine-tuning only</em></td><td>~450M (pretrained on millions of demos)</td></tr><tr><td><strong>SAC</strong></td><td><em>[to fill]</em></td><td><em>[to fill]</em></td><td>0 demos (reward-based), <em>[to fill]</em> sim steps</td><td><em>[to fill]</em></td></tr></tbody></table></div>
+<p><strong>Key interpretive note:</strong> SmolVLA’s 450M parameters encode knowledge from large-scale pretraining — the 2h41m fine-tuning is only the adaptation phase. ACT’s 4h28m is the full training from the demo set. Comparing their wall-clock time directly is misleading; the relevant question is what each method achieves given its total compute and data budget.</p>
+<hr/>
+<h3 id="test-matrix-minimum-required">Test matrix (minimum required)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#test-matrix-minimum-required" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Axis</th><th>Conditions</th><th>Trials per condition</th><th>Total trials</th></tr></thead><tbody><tr><td>ID</td><td>Training distribution (12 training squares, 0° and 45°)</td><td>50</td><td>50</td></tr><tr><td>Near-OOD: position</td><td>4 held-out grid squares</td><td>30</td><td>30</td></tr><tr><td>Near-OOD: orientation</td><td>Object at random angle (not 0° or 45°)</td><td>30</td><td>30</td></tr><tr><td>Near-OOD: lighting</td><td>Ambient light ±30%</td><td>30</td><td>30</td></tr><tr><td>Near-OOD: distractor</td><td>1 irrelevant object added</td><td>30</td><td>30</td></tr><tr><td>Far-OOD: new color</td><td>Same object, different color</td><td>20</td><td>20</td></tr><tr><td>Perturbation: slip</td><td>Object pushed during grasp</td><td>20</td><td>20</td></tr><tr><td><strong>Total</strong></td><td></td><td></td><td><strong>~210 trials</strong></td></tr></tbody></table></div>
+<hr/>
+<h3 id="per-algorithm-comparison-table-dataset_v4-results">Per-algorithm comparison table (Dataset_v4 results)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#per-algorithm-comparison-table-dataset_v4-results" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Algorithm</th><th>ID (0°)</th><th>ID (45°)</th><th>Near-OOD pos. (0°)</th><th>Near-OOD pos. (45°)</th><th>Novel random pos.</th><th>Distractor</th></tr></thead><tbody><tr><td>SAC (sim)</td><td>92%</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td><strong>ACT</strong></td><td><strong>83%</strong> (10/12)</td><td><strong>92%</strong> (11/12)</td><td>50% (2/4)</td><td><strong>100%</strong> (4/4)</td><td><strong>80%</strong> (4/5)</td><td><strong>75%</strong> (3/4)</td></tr><tr><td>SmolVLA</td><td>58% (7/12)</td><td>58% (7/12)</td><td>25% (1/4)</td><td>50% (2/4)</td><td>60% (3/5)</td><td>0% (0/4)*</td></tr></tbody></table></div>
+<p>*SmolVLA: 3 near-successes with distractor (cube above box but dropped on edge). All OOD and distractor cells have N ≤ 5 — treat as indicative only (see Statistical Reporting). Full 30-trial near-OOD batches are pending Phase 2 evaluation.</p>
+<hr/>
+<h2 id="expected-outcome-profiles-by-algorithm-family">Expected outcome profiles by algorithm family<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#expected-outcome-profiles-by-algorithm-family" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>These are predictions based on the literature, not post-hoc rationalization. Compare against actual results to identify surprises and guide the next experiment cycle.</p>
+<h3 id="axis-1--id-performance">Axis 1 — ID performance<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-1--id-performance" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Family</th><th>Expected profile</th><th>Why</th></tr></thead><tbody><tr><td><strong>RL (SAC/PPO)</strong></td><td>High (>85%) — but simulation only</td><td>Reward signal optimizes precisely for the training task; no generalization needed</td></tr><tr><td><strong>IL (ACT)</strong></td><td>High (80–90%)</td><td>ACT was designed for precise bimanual manipulation from demonstrations; strong on trained distribution</td></tr><tr><td><strong>VLA (SmolVLA)</strong></td><td>Moderate (60–75%) at current data volume</td><td>Pretrained backbone adds generalization cost — precise fine-tuning on 111 demos is insufficient to overcome</td></tr></tbody></table></div>
+<h3 id="axis-2--near-ood-position-held-out-grid-squares">Axis 2 — Near-OOD (position: held-out grid squares)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-2--near-ood-position-held-out-grid-squares" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Family</th><th>Expected profile</th><th>Why</th></tr></thead><tbody><tr><td><strong>RL (SAC/PPO)</strong></td><td>N/A (sim only, not evaluated on real hardware)</td><td>—</td></tr><tr><td><strong>IL (ACT)</strong></td><td>Moderate drop (50–70%)</td><td>BC models interpolate within seen positions; held-out squares within the same workspace may partially generalize</td></tr><tr><td><strong>VLA (SmolVLA)</strong></td><td>Smaller drop than ACT</td><td>Pretrained visual backbone provides spatial generalization; less sensitive to exact pixel configuration</td></tr></tbody></table></div>
+<h3 id="axis-2--near-ood-distractor-object">Axis 2 — Near-OOD (distractor object)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-2--near-ood-distractor-object" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Family</th><th>Expected profile</th><th>Why</th></tr></thead><tbody><tr><td><strong>RL (SAC/PPO)</strong></td><td>N/A</td><td>—</td></tr><tr><td><strong>IL (ACT)</strong></td><td>Moderate drop (60–80%)</td><td>ACT attends to the full scene; a distractor may divert attention but the action distribution is conditioned on the instruction</td></tr><tr><td><strong>VLA (SmolVLA)</strong></td><td>Large drop (expected robust, <em>actually 0%</em>)</td><td>Pretrained backbone <em>should</em> suppress irrelevant objects — the 0% result is a key anomaly pointing to full fine-tuning eroding pretrained robustness (see <a href="./algo-smolvla" class="internal internal-link" data-slug="algo-smolvla">algo-smolvla</a>)</td></tr></tbody></table></div>
+<h3 id="axis-3--far-ood-new-colortexture">Axis 3 — Far-OOD (new color/texture)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-3--far-ood-new-colortexture" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Family</th><th>Expected profile</th><th>Why</th></tr></thead><tbody><tr><td><strong>RL (SAC/PPO)</strong></td><td>Likely fails (close to 0%)</td><td>State representation tied to pixel patterns seen during training</td></tr><tr><td><strong>IL (ACT)</strong></td><td>Depends on augmentation</td><td>Without color jitter in training, likely large drop; ACT has no pretrained visual prior</td></tr><tr><td><strong>VLA (SmolVLA)</strong></td><td>Most robust</td><td>Pretrained CLIP/VLM backbone generalizes across colors and textures by design</td></tr></tbody></table></div>
+<h3 id="axis-4--perturbation-recovery">Axis 4 — Perturbation recovery<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#axis-4--perturbation-recovery" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Family</th><th>Expected profile</th><th>Why</th></tr></thead><tbody><tr><td><strong>RL (SAC/PPO)</strong></td><td>Low recovery</td><td>Trained to succeed; no failure detection mechanism</td></tr><tr><td><strong>IL (ACT)</strong></td><td>Low recovery</td><td>BC replans from current observation but has no explicit “I failed” signal</td></tr><tr><td><strong>VLA (SmolVLA with thinking)</strong></td><td>Potentially higher</td><td>Models like GR 1.5 use reasoning traces for failure detection — SmolVLA at current scale likely limited</td></tr></tbody></table></div>
+<hr/>
+<h2 id="practical-tips-for-running-evaluations">Practical tips for running evaluations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practical-tips-for-running-evaluations" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Randomize trial order</strong> — don’t run all SAC trials then all ACT trials. Interleave them so any session-level effects (lighting drift, robot wear) are distributed across algorithms.</p>
+<p><strong>Reset completely between trials</strong> — return robot to home position, reset object to initial position, close gripper fully. Partial resets are a common source of evaluation bias.</p>
+<p><strong>Record every trial</strong> — always record video. Failures often look surprising on video and reveal issues you’d miss from success rate alone.</p>
+<p><strong>Report confidence intervals</strong> — use the Wilson score interval (see Statistical Reporting above). Don’t report results from fewer than 30 trials as inferentially meaningful.</p>
+<p><strong>Separate training evaluator from training designer</strong> — if possible, have someone who didn’t tune the algorithm run the evaluation. Unconscious bias in trial setup (e.g., placing objects in easier positions) is a real confound.</p>
+<hr/>
+<h2 id="related-pages">Related pages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#related-pages" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="./decision-guide" class="internal internal-link" data-slug="decision-guide">decision-guide</a> — how to choose and train each approach</li>
+<li><a href="./results" class="internal internal-link" data-slug="results">results</a> — consolidated SO-100 results dashboard</li>
+<li><a href="./pick-and-place" class="internal internal-link" data-slug="pick-and-place">pick-and-place</a> — task-specific synthesis including SO-100 results</li>
+<li><a href="./algo-smolvla" class="internal internal-link" data-slug="algo-smolvla">algo-smolvla</a> — SmolVLA architecture and distractor anomaly hypothesis</li>
+<li><a href="./reinforcement-learning" class="internal internal-link" data-slug="reinforcement-learning">reinforcement-learning</a>, <a href="./imitation-learning" class="internal internal-link" data-slug="imitation-learning">imitation-learning</a>, <a href="./vision-language-action-models" class="internal internal-link" data-slug="vision-language-action-models">vision-language-action-models</a> — per-paradigm details</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-27" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#evaluation-protocol--robot-learning-policies" data-for="evaluation-protocol--robot-learning-policies">Evaluation Protocol — Robot Learning Policies</a></li><li class="depth-1"><a href="#glossary" data-for="glossary">Glossary</a></li><li class="depth-1"><a href="#why-a-standardized-protocol-matters" data-for="why-a-standardized-protocol-matters">Why a standardized protocol matters</a></li><li class="depth-1"><a href="#evaluation-axes" data-for="evaluation-axes">Evaluation axes</a></li><li class="depth-2"><a href="#axis-1--in-distribution-id" data-for="axis-1--in-distribution-id">Axis 1 — In-Distribution (ID)</a></li><li class="depth-2"><a href="#axis-2--near-out-of-distribution-near-ood" data-for="axis-2--near-out-of-distribution-near-ood">Axis 2 — Near Out-of-Distribution (near-OOD)</a></li><li class="depth-2"><a href="#axis-3--far-out-of-distribution-far-ood" data-for="axis-3--far-out-of-distribution-far-ood">Axis 3 — Far Out-of-Distribution (far-OOD)</a></li><li class="depth-2"><a href="#axis-4--robustness-to-perturbations" data-for="axis-4--robustness-to-perturbations">Axis 4 — Robustness to perturbations</a></li><li class="depth-2"><a href="#axis-5--consistency-and-reliability" data-for="axis-5--consistency-and-reliability">Axis 5 — Consistency and reliability</a></li><li class="depth-1"><a href="#standard-metrics" data-for="standard-metrics">Standard metrics</a></li><li class="depth-1"><a href="#statistical-reporting" data-for="statistical-reporting">Statistical reporting</a></li><li class="depth-1"><a href="#protocol-for-the-so-100-pick-and-place-experiments" data-for="protocol-for-the-so-100-pick-and-place-experiments">Protocol for the SO-100 pick-and-place experiments</a></li><li class="depth-2"><a href="#test-configuration" data-for="test-configuration">Test configuration</a></li><li class="depth-2"><a href="#training-zone-definition" data-for="training-zone-definition">Training zone definition</a></li><li class="depth-2"><a href="#trial-count-justification" data-for="trial-count-justification">Trial count justification</a></li><li class="depth-2"><a href="#model-training-context" data-for="model-training-context">Model training context</a></li><li class="depth-2"><a href="#test-matrix-minimum-required" data-for="test-matrix-minimum-required">Test matrix (minimum required)</a></li><li class="depth-2"><a href="#per-algorithm-comparison-table-dataset_v4-results" data-for="per-algorithm-comparison-table-dataset_v4-results">Per-algorithm comparison table (Dataset_v4 results)</a></li><li class="depth-1"><a href="#expected-outcome-profiles-by-algorithm-family" data-for="expected-outcome-profiles-by-algorithm-family">Expected outcome profiles by algorithm family</a></li><li class="depth-2"><a href="#axis-1--id-performance" data-for="axis-1--id-performance">Axis 1 — ID performance</a></li><li class="depth-2"><a href="#axis-2--near-ood-position-held-out-grid-squares" data-for="axis-2--near-ood-position-held-out-grid-squares">Axis 2 — Near-OOD (position: held-out grid squares)</a></li><li class="depth-2"><a href="#axis-2--near-ood-distractor-object" data-for="axis-2--near-ood-distractor-object">Axis 2 — Near-OOD (distractor object)</a></li><li class="depth-2"><a href="#axis-3--far-ood-new-colortexture" data-for="axis-3--far-ood-new-colortexture">Axis 3 — Far-OOD (new color/texture)</a></li><li class="depth-2"><a href="#axis-4--perturbation-recovery" data-for="axis-4--perturbation-recovery">Axis 4 — Perturbation recovery</a></li><li class="depth-1"><a href="#practical-tips-for-running-evaluations" data-for="practical-tips-for-running-evaluations">Practical tips for running evaluations</a></li><li class="depth-1"><a href="#related-pages" data-for="related-pages">Related pages</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-0" class="overflow"><li><a href="./algo-smolvla" class="internal">algo-smolvla</a></li><li><a href="./decision-guide" class="internal">decision-guide</a></li><li><a href="./" class="internal">index</a></li><li><a href="./overview" class="internal">overview</a></li><li><a href="./results" class="internal">results</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="./static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript-503771fb.js" type="module" data-persist="true"></script></html>

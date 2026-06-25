@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>algo-octo</title><meta charset="utf-8"/><link rel="preload" href="./index-47d9ba67.css" as="style"/><link rel="preload" href="./prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="algo-octo"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="algo-octo"/><meta name="twitter:description" content="Algorithm: Octo Paper: “Octo: An Open-Source Generalist Robot Policy” — Octo Model Team (UC Berkeley / Stanford / Google DeepMind, 2024) Category: Transformer-based generalist robot policy; pre-trainable + fine-tunable Related: vision-language-action-models, algo-openvla, algo-vla-rl The Problem It ..."/><meta property="og:description" content="Algorithm: Octo Paper: “Octo: An Open-Source Generalist Robot Policy” — Octo Model Team (UC Berkeley / Stanford / Google DeepMind, 2024) Category: Transformer-based generalist robot policy; pre-trainable + fine-tunable Related: vision-language-action-models, algo-openvla, algo-vla-rl The Problem It ..."/><meta property="og:image:alt" content="Algorithm: Octo Paper: “Octo: An Open-Source Generalist Robot Policy” — Octo Model Team (UC Berkeley / Stanford / Google DeepMind, 2024) Category: Transformer-based generalist robot policy; pre-trainable + fine-tunable Related: vision-language-action-models, algo-openvla, algo-vla-rl The Problem It ..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/algo-octo"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/algo-octo"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="Algorithm: Octo Paper: “Octo: An Open-Source Generalist Robot Policy” — Octo Model Team (UC Berkeley / Stanford / Google DeepMind, 2024) Category: Transformer-based generalist robot policy; pre-trainable + fine-tunable Related: vision-language-action-models, algo-openvla, algo-vla-rl The Problem It ..."/><meta name="generator" content="Quartz"/><link href="./index-47d9ba67.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/algo-octo-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/algo-octo-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/algo-octo-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="algo-octo" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href=".">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-14" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-14" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>algo-octo</a></div></nav><h1 class="article-title">algo-octo</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-24T15:02:46.000Z">Jun 24, 2026</time><span>6 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="algorithm-octo">Algorithm: Octo<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#algorithm-octo" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Paper:</strong> “Octo: An Open-Source Generalist Robot Policy” — Octo Model Team (UC Berkeley / Stanford / Google DeepMind, 2024)
+<strong>Category:</strong> Transformer-based generalist robot policy; pre-trainable + fine-tunable
+<strong>Related:</strong> <a href="./vision-language-action-models" class="internal internal-link" data-slug="vision-language-action-models">vision-language-action-models</a>, <a href="./algo-openvla" class="internal internal-link" data-slug="algo-openvla">algo-openvla</a>, <a href="./algo-vla-rl" class="internal internal-link" data-slug="algo-vla-rl">algo-vla-rl</a></p>
+<hr/>
+<h2 id="the-problem-it-solves">The Problem It Solves<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-problem-it-solves" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Robot learning suffers from a fundamental data bottleneck: each lab trains a policy for <em>their</em> specific robot, with <em>their</em> specific cameras, on <em>their</em> specific tasks — and none of this transfers. The robotics community has accumulated enormous datasets across labs (the Open X-Embodiment dataset), but no open model existed that could leverage this data to provide a strong universal starting point.</p>
+<p><strong>Octo goal:</strong> Be the “GPT-2 moment” for robot policies — a pre-trained open-source generalist that any researcher can fine-tune to their setup without training from scratch.</p>
+<hr/>
+<h2 id="how-it-works">How It Works<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-it-works" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="architecture-modular-transformer">Architecture: Modular Transformer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#architecture-modular-transformer" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Octo’s design prioritizes <strong>flexibility and fine-tunability</strong> above all else. It uses a modular Transformer architecture:</p>
+<pre><code>Input:
+  Task: [language tokens] or [goal image tokens]
+  Observations: [image tokens from multiple cameras]
+  
+Processing:
+  Readout tokens (learnable, one per output modality)
+  
+Self-attention across all tokens (task + obs + readout)
+
+Output:
+  Readout token embeddings → diffusion head → action sequence
+</code></pre>
+<p><strong>1. Input tokenization</strong></p>
+<p><em>Task specification:</em> Octo handles two types of task specification, encoded as token sequences:</p>
+<ul>
+<li><strong>Language:</strong> “Pick up the can and place it in the pot” → tokenized via a small language encoder (FiLM-conditioned, not a full LLM)</li>
+<li><strong>Goal image:</strong> A target image showing the desired end state → tokenized via ViT</li>
+</ul>
+<p><em>Observations:</em> Camera images from one or more cameras → ViT patch tokens. Octo’s architecture supports a <strong>variable number of cameras</strong> (the attention mechanism handles different numbers of input tokens naturally).</p>
+<p><em>Readout tokens:</em> Learnable “query” tokens that collect information from the full context for downstream action prediction.</p>
+<p><strong>2. Transformer processing</strong></p>
+<p>All tokens (task + observations from history H + readout tokens) are processed jointly via <strong>causal self-attention</strong>. The Transformer can attend across all modalities and time steps.</p>
+<p>Octo’s causal masking preserves the time-ordering of observations: at step t, the model sees observations from steps t-H to t, but not future steps.</p>
+<p><strong>3. Action head: Diffusion</strong></p>
+<p>Octo’s action head is a <strong>diffusion process</strong> (like Diffusion Policy):</p>
+<pre><code>Readout tokens → Diffusion head → action sequence (W future steps)
+</code></pre>
+<p>Actions are continuous (joint velocities or end-effector deltas).</p>
+<p>The diffusion head conditions on the readout token embeddings and denoises a Gaussian action sample into a coherent action chunk. This provides multimodal action distributions and handles multiple robot action spaces.</p>
+<h3 id="training-data">Training Data<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#training-data" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Open X-Embodiment dataset:</strong></p>
+<ul>
+<li><strong>800,000 trajectories</strong> from multiple research labs and robot types</li>
+<li>22 robot embodiments: WidowX, Franka, Google Robot, UR5, RT-X, Jaco, Kuka IIWA, etc.</li>
+<li>Diverse tasks: grasping, stacking, drawer manipulation, object rearrangement, navigation</li>
+<li>Multiple control modalities: joint velocity, EEF (end-effector) position, delta EEF</li>
+</ul>
+<p>Training with standard behavior cloning (MSE on diffusion-denoised actions or transformer cross-entropy).</p>
+<h3 id="fine-tuning-design">Fine-Tuning Design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fine-tuning-design" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Octo’s modularity is designed for three types of fine-tuning:</p>
+<p><strong>Type 1: New observation space</strong> (different cameras)</p>
+<ul>
+<li>Patch-embed the new camera images</li>
+<li>Fine-tune the ViT observation tokenizer</li>
+</ul>
+<p><strong>Type 2: New action space</strong> (different control modality or DoF)</p>
+<ul>
+<li>Train a new diffusion head from scratch; keep the Transformer backbone frozen</li>
+<li>Only a few thousand demonstrations needed</li>
+</ul>
+<p><strong>Type 3: New task</strong> (new language instructions or goal images)</p>
+<ul>
+<li>Fine-tune the full model (or just the task encoder + action head) on task-specific data</li>
+</ul>
+<p>Fine-tuning reported to complete in <strong>a few hours on standard consumer GPUs</strong> (e.g., 2× RTX 3090).</p>
+<hr/>
+<h2 id="why-it-works">Why It Works<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#why-it-works" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="pre-training-amortizes-cost">Pre-training Amortizes Cost<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pre-training-amortizes-cost" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>By training on 800k diverse demonstrations once, Octo learns a rich shared representation of robot behavior. Fine-tuning to a new robot/task only needs to adapt this representation, not learn from scratch. The pre-trained backbone already “knows” how to move robot arms, grasp objects, and follow instructions.</p>
+<h3 id="flexible-architecture-handles-diversity">Flexible Architecture Handles Diversity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#flexible-architecture-handles-diversity" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Standard architectures struggle with variable cameras, action spaces, and task types. Octo’s modular design — tokenize everything, process with self-attention — naturally handles this diversity. The diffusion head is inherently continuous and dimension-flexible.</p>
+<h3 id="open-x-embodiment--community-scale-data">Open X-Embodiment = Community-Scale Data<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#open-x-embodiment--community-scale-data" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>No single lab can collect 800k diverse demonstrations, but the combined robotics community can. The Open X-Embodiment dataset (led by the RT-X effort) makes this scale possible. Octo is the first open model to train on this full dataset.</p>
+<hr/>
+<h2 id="evaluation">Evaluation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#evaluation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="platforms-9-evaluated">Platforms (9 evaluated)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#platforms-9-evaluated" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Octo was tested on 9 different robot setups including:</p>
+<ul>
+<li><strong>WidowX</strong> (same as BridgeV2 training distribution)</li>
+<li><strong>Franka Panda</strong> (out-of-distribution; fine-tuned)</li>
+<li><strong>Google Robot</strong> (in-distribution; same data as RT-X)</li>
+<li><strong>Simulated environments</strong> (MuJoCo-based)</li>
+<li><strong>Various camera configurations</strong> (single vs. wrist camera)</li>
+</ul>
+<h3 id="comparison">Comparison<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#comparison" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Model</th><th>Parameters</th><th>WidowX Tasks</th><th>Fine-tuning Time</th></tr></thead><tbody><tr><td>BC (single task)</td><td>~10M</td><td>52%</td><td>Hours per task</td></tr><tr><td>RT-2-X</td><td>55B</td><td>62%</td><td>Days (GPU clusters)</td></tr><tr><td>OpenVLA</td><td>7B</td><td>79%</td><td>1.5h (QLoRA)</td></tr><tr><td><strong>Octo</strong></td><td><strong>~90M</strong></td><td><strong>50%–65%</strong></td><td><strong>Few hours</strong></td></tr></tbody></table></div>
+<p><strong>Note:</strong> Octo is much smaller (~90M vs. 7B for OpenVLA) and primarily evaluated on fine-tuning versatility rather than raw performance on a single benchmark.</p>
+<h3 id="key-fine-tuning-results">Key Fine-Tuning Results<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-fine-tuning-results" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>New observation space (wrist camera added):</strong></p>
+<ul>
+<li>Octo + new camera fine-tuning: +15-25% over Octo without camera</li>
+<li>Demonstrates modular adaptation to new sensors</li>
+</ul>
+<p><strong>New action space (delta EEF → joint velocity):</strong></p>
+<ul>
+<li>Fine-tune action head only: recovers 85-90% of full fine-tuning performance</li>
+<li>Minimal data needed (few hundred demos)</li>
+</ul>
+<p><strong>Zero-shot</strong> (no fine-tuning):</p>
+<ul>
+<li>Octo out-of-the-box on a Franka (not in training data): ~30-40%</li>
+<li>After 2h fine-tuning: ~60-70%</li>
+</ul>
+<h3 id="ablations">Ablations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ablations" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Remove pre-training (train from scratch on fine-tuning data):</strong> -20-30% across tasks</li>
+<li><strong>Language vs. goal image conditioning:</strong> Language conditioning generalizes better to unseen task variations</li>
+<li><strong>History length H:</strong> H=2-3 frames optimal; longer history provides marginal gains at extra compute</li>
+</ul>
+<hr/>
+<h2 id="pros">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Small and efficient</strong> — ~90M parameters; fine-tunable on a single consumer GPU in hours</li>
+<li><strong>Highly modular</strong> — handles new cameras, new action spaces, new tasks independently</li>
+<li><strong>Open source</strong> — weights, code, and training pipeline fully released; reproducible</li>
+<li><strong>Strong fine-tuning baseline</strong> — pre-trained Octo routinely outperforms training from scratch</li>
+<li><strong>Diffusion action head</strong> — handles multimodal action distributions and continuous action spaces of any dimension</li>
+</ul>
+<h2 id="cons">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Lower raw performance than OpenVLA</strong> — 7B OpenVLA outperforms 90M Octo in head-to-head comparisons (expected: scale matters)</li>
+<li><strong>Not a language model</strong> — uses a simple language encoder, not a full LLM; less sophisticated language understanding than OpenVLA/Llama2</li>
+<li><strong>Limited generalization</strong> — despite 800k demos, still fine-tuning needed for reliable performance on new setups</li>
+<li><strong>Image-based only</strong> — no point cloud or 3D input; limited spatial precision</li>
+<li><strong>Slower than non-diffusion policies</strong> at inference (same tradeoff as Diffusion Policy)</li>
+</ul>
+<hr/>
+<h2 id="octo-vs-openvla">Octo vs. OpenVLA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#octo-vs-openvla" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th>Octo</th><th>OpenVLA</th></tr></thead><tbody><tr><td>Size</td><td>~90M</td><td>7B</td></tr><tr><td>LLM backbone</td><td>No (small encoder)</td><td>Yes (Llama 2)</td></tr><tr><td>Language understanding</td><td>Limited</td><td>Strong</td></tr><tr><td>Fine-tuning cost</td><td>Hours, single GPU</td><td>Hours, single GPU (QLoRA)</td></tr><tr><td>Action head</td><td>Diffusion</td><td>Discrete tokens</td></tr><tr><td>Performance on known robots</td><td>~50-65%</td><td>~79%</td></tr><tr><td>Modularity</td><td>High (designed for it)</td><td>Moderate</td></tr></tbody></table></div>
+<p><strong>Recommendation:</strong> Use Octo when you need a lightweight, quick-to-fine-tune baseline or a modular architecture; use OpenVLA when language grounding and peak task performance matter.</p>
+<hr/>
+<h2 id="in-this-wiki">In This Wiki<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#in-this-wiki" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Octo: <a href="./vision-language-action-models" class="internal internal-link" data-slug="vision-language-action-models">vision-language-action-models</a>, <a href="./simulation-and-tools" class="internal internal-link" data-slug="simulation-and-tools">simulation-and-tools</a>.
+Compare with: <a href="./algo-openvla" class="internal internal-link" data-slug="algo-openvla">algo-openvla</a> (larger, stronger language; same open-source ethos), <a href="./algo-vla-rl" class="internal internal-link" data-slug="algo-vla-rl">algo-vla-rl</a> (RL fine-tuning approach applicable to both).</p></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-14" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#algorithm-octo" data-for="algorithm-octo">Algorithm: Octo</a></li><li class="depth-1"><a href="#the-problem-it-solves" data-for="the-problem-it-solves">The Problem It Solves</a></li><li class="depth-1"><a href="#how-it-works" data-for="how-it-works">How It Works</a></li><li class="depth-2"><a href="#architecture-modular-transformer" data-for="architecture-modular-transformer">Architecture: Modular Transformer</a></li><li class="depth-2"><a href="#training-data" data-for="training-data">Training Data</a></li><li class="depth-2"><a href="#fine-tuning-design" data-for="fine-tuning-design">Fine-Tuning Design</a></li><li class="depth-1"><a href="#why-it-works" data-for="why-it-works">Why It Works</a></li><li class="depth-2"><a href="#pre-training-amortizes-cost" data-for="pre-training-amortizes-cost">Pre-training Amortizes Cost</a></li><li class="depth-2"><a href="#flexible-architecture-handles-diversity" data-for="flexible-architecture-handles-diversity">Flexible Architecture Handles Diversity</a></li><li class="depth-2"><a href="#open-x-embodiment--community-scale-data" data-for="open-x-embodiment--community-scale-data">Open X-Embodiment = Community-Scale Data</a></li><li class="depth-1"><a href="#evaluation" data-for="evaluation">Evaluation</a></li><li class="depth-2"><a href="#platforms-9-evaluated" data-for="platforms-9-evaluated">Platforms (9 evaluated)</a></li><li class="depth-2"><a href="#comparison" data-for="comparison">Comparison</a></li><li class="depth-2"><a href="#key-fine-tuning-results" data-for="key-fine-tuning-results">Key Fine-Tuning Results</a></li><li class="depth-2"><a href="#ablations" data-for="ablations">Ablations</a></li><li class="depth-1"><a href="#pros" data-for="pros">Pros</a></li><li class="depth-1"><a href="#cons" data-for="cons">Cons</a></li><li class="depth-1"><a href="#octo-vs-openvla" data-for="octo-vs-openvla">Octo vs. OpenVLA</a></li><li class="depth-1"><a href="#in-this-wiki" data-for="in-this-wiki">In This Wiki</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-0" class="overflow"><li><a href="./algo-gemini-robotics-15" class="internal">algo-gemini-robotics-15</a></li><li><a href="./algo-molmo2" class="internal">algo-molmo2</a></li><li><a href="./algo-molmobot" class="internal">algo-molmobot</a></li><li><a href="./algo-openvla" class="internal">algo-openvla</a></li><li><a href="./algo-qlora" class="internal">algo-qlora</a></li><li><a href="./decision-guide" class="internal">decision-guide</a></li><li><a href="./" class="internal">index</a></li><li><a href="./overview" class="internal">overview</a></li><li><a href="./vision-language-action-models" class="internal">vision-language-action-models</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="./static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript-503771fb.js" type="module" data-persist="true"></script></html>

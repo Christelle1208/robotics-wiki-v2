@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>Quartz 5</title>
+      <link>https://quartz.jzhao.xyz</link>
+      <description>Last 10 notes on Quartz 5</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Tag Index</title>
+    <link>https://quartz.jzhao.xyz/tags/</link>
+    <guid>https://quartz.jzhao.xyz/tags/</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:07:44 GMT</pubDate>
+  </item><item>
+    <title>algo-act</title>
+    <link>https://quartz.jzhao.xyz/algo-act</link>
+    <guid>https://quartz.jzhao.xyz/algo-act</guid>
+    <description><![CDATA[ Algorithm: ACT — Action Chunking with Transformers Paper: “Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware” — Zhao, Kumar, Levine, Finn (2023) Category: Imitation learning — Transformer-based policy with action chunking Related: imitation-learning, grasping-and-manipulation, algo-... ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-awac</title>
+    <link>https://quartz.jzhao.xyz/algo-awac</link>
+    <guid>https://quartz.jzhao.xyz/algo-awac</guid>
+    <description><![CDATA[ Algorithm: AWAC — Advantage-Weighted Actor-Critic (and AW-Opt) Papers: “Accelerating Online Reinforcement Learning with Offline Datasets” — Nair et al. ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-cliport</title>
+    <link>https://quartz.jzhao.xyz/algo-cliport</link>
+    <guid>https://quartz.jzhao.xyz/algo-cliport</guid>
+    <description><![CDATA[ Algorithm: CLIPORT — What and Where Pathways for Robotic Manipulation Paper: “CLIPORT: What and Where Pathways for Robotic Manipulation” — Shridhar, Manuelli, Fox (CoRL 2021) Category: Language-conditioned imitation learning — two-stream architecture combining a semantic (“what”) and spatial (“where... ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-cql</title>
+    <link>https://quartz.jzhao.xyz/algo-cql</link>
+    <guid>https://quartz.jzhao.xyz/algo-cql</guid>
+    <description><![CDATA[ Algorithm: CQL — Conservative Q-Learning Paper: “Conservative Q-Learning for Offline Reinforcement Learning” — Kumar et al. ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-diffusion-policy</title>
+    <link>https://quartz.jzhao.xyz/algo-diffusion-policy</link>
+    <guid>https://quartz.jzhao.xyz/algo-diffusion-policy</guid>
+    <description><![CDATA[ Algorithm: Diffusion Policy Paper: “Visuomotor Policy Learning via Action Diffusion” — Chi, Feng, Du, Xu, Cousineau, Burchfiel, Song (Columbia / Toyota Research, 2023) Category: Imitation learning — diffusion-based visuomotor policy Related: imitation-learning, algo-act, algo-vq-bet The Problem It S... ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-dqn</title>
+    <link>https://quartz.jzhao.xyz/algo-dqn</link>
+    <guid>https://quartz.jzhao.xyz/algo-dqn</guid>
+    <description><![CDATA[ Algorithm: DQN — Deep Q-Network Origin: Mnih et al. ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-gemini-robotics-15</title>
+    <link>https://quartz.jzhao.xyz/algo-gemini-robotics-15</link>
+    <guid>https://quartz.jzhao.xyz/algo-gemini-robotics-15</guid>
+    <description><![CDATA[ System: Gemini Robotics 1.5 — Thinking VLA + Embodied Reasoning Agent Paper: “Gemini Robotics 1.5: Pushing the Frontier of Generalist Robots with Advanced Embodied Reasoning, Thinking, and Motion Transfer” — Gemini Robotics Team, Google DeepMind, 2025 Category: Multi-embodiment VLA + Embodied Reason... ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-her</title>
+    <link>https://quartz.jzhao.xyz/algo-her</link>
+    <guid>https://quartz.jzhao.xyz/algo-her</guid>
+    <description><![CDATA[ Algorithm: HER — Hindsight Experience Replay Paper: “Hindsight Experience Replay” — Andrychowicz et al. ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item><item>
+    <title>algo-hitl-rl</title>
+    <link>https://quartz.jzhao.xyz/algo-hitl-rl</link>
+    <guid>https://quartz.jzhao.xyz/algo-hitl-rl</guid>
+    <description><![CDATA[ Algorithm: HITL-RL — Human-in-the-Loop Reinforcement Learning Paper: “Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning” — Luo, Xu, Wu, Levine (UC Berkeley, 2024) Category: Interactive RL — combines online RL with real-time human corrections Related: hybrid-il-r... ]]></description>
+    <pubDate>Wed, 24 Jun 2026 15:02:46 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

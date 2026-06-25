@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>decision-guide</title><meta charset="utf-8"/><link rel="preload" href="./index-47d9ba67.css" as="style"/><link rel="preload" href="./prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="decision-guide"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="decision-guide"/><meta name="twitter:description" content="Decision Guide — Choosing a Robot Learning Approach This page is a practical tool for picking the right approach given your constraints."/><meta property="og:description" content="Decision Guide — Choosing a Robot Learning Approach This page is a practical tool for picking the right approach given your constraints."/><meta property="og:image:alt" content="Decision Guide — Choosing a Robot Learning Approach This page is a practical tool for picking the right approach given your constraints."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/decision-guide"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/decision-guide"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="Decision Guide — Choosing a Robot Learning Approach This page is a practical tool for picking the right approach given your constraints."/><meta name="generator" content="Quartz"/><link href="./index-47d9ba67.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/decision-guide-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/decision-guide-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/decision-guide-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="decision-guide" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href=".">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-26" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-26" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>decision-guide</a></div></nav><h1 class="article-title">decision-guide</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-24T15:02:46.000Z">Jun 24, 2026</time><span>27 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="decision-guide--choosing-a-robot-learning-approach">Decision Guide — Choosing a Robot Learning Approach<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#decision-guide--choosing-a-robot-learning-approach" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>This page is a practical tool for picking the right approach given your constraints. It is opinionated by design. See <a href="./overview" class="internal internal-link" data-slug="overview">overview</a> for the conceptual framing of the three families.</p>
+<hr/>
+<h2 id="step-1--clarify-your-constraints">Step 1 — Clarify your constraints<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-1--clarify-your-constraints" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Before choosing an algorithm, answer these four questions:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Question</th><th>Answer options</th></tr></thead><tbody><tr><td><strong>Do you have a simulator?</strong></td><td>Yes (fast, GPU-accelerated) / Yes (slow/basic) / No</td></tr><tr><td><strong>Can you define a reward function?</strong></td><td>Yes (dense reward) / Partially (sparse/binary) / No</td></tr><tr><td><strong>Do you have demonstrations?</strong></td><td>Yes, many (50+) / Yes, few (10–30) / No</td></tr><tr><td><strong>What generalization do you need?</strong></td><td>Same objects/setup / New objects, same task / Multi-task, language-conditioned</td></tr></tbody></table></div>
+<hr/>
+<h2 id="step-2--decision-flowchart">Step 2 — Decision flowchart<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-2--decision-flowchart" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│              What's your primary constraint?                    │
+└─────────────────────────────────────────────────────────────────┘
+         │                      │                      │
+         ▼                      ▼                      ▼
+  Have simulator +        Have demos,           Need language /
+  can define reward       no sim needed         multi-task generalization
+         │                      │                      │
+         ▼                      ▼                      ▼
+    ┌────────┐           ┌────────────┐         ┌────────────────┐
+    │   RL   │           │    IL      │         │      VLA       │
+    └────────┘           └────────────┘         └────────────────┘
+         │                      │                      │
+    ┌────┴────┐           ┌─────┴─────┐         ┌──────┴──────┐
+    │         │           │           │         │             │
+    ▼         ▼           ▼           ▼         ▼             ▼
+Continuous  Discrete  Few demos   Many demos  Compute     Low compute
+  action     action   (10–30)     (50+)       available   constrained
+    │         │           │           │         │             │
+    ▼         ▼           ▼           ▼         ▼             ▼
+  SAC       DQN/PPO    ACT/IL→RL   Diffusion  OpenVLA/    SmolVLA /
+                       + AWAC      Policy     π0           TinyVLA
+</code></pre>
+<hr/>
+<h2 id="step-3--full-recommendation-table">Step 3 — Full recommendation table<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-3--full-recommendation-table" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Your situation</th><th>Recommended approach</th><th>Why</th><th>Key papers</th></tr></thead><tbody><tr><td>Sim available, reward definable, continuous actions</td><td><strong>SAC</strong></td><td>Off-policy, sample-efficient, auto-tuned entropy</td><td><a href="./algo-sac" class="internal internal-link" data-slug="algo-sac">algo-sac</a></td></tr><tr><td>Sim available, reward definable, sparse reward</td><td><strong>SAC + HER</strong></td><td>Hindsight relabeling rescues sparse binary rewards</td><td><a href="./algo-her" class="internal internal-link" data-slug="algo-her">algo-her</a></td></tr><tr><td>Sim available, long-horizon, composable subtasks</td><td><strong>SQL → SAC</strong></td><td>Composable policy arithmetic</td><td><a href="./algo-sql-sac" class="internal internal-link" data-slug="algo-sql-sac">algo-sql-sac</a></td></tr><tr><td>Offline data from previous deployments</td><td><strong>CQL + SAC</strong></td><td>Conservative Q-learning prevents OOD overestimation</td><td><a href="./algo-cql" class="internal internal-link" data-slug="algo-cql">algo-cql</a></td></tr><tr><td>10–30 precise demos, fixed robot setup</td><td><strong>ACT</strong></td><td>Action chunking handles temporal precision, works from few demos</td><td><a href="./algo-act" class="internal internal-link" data-slug="algo-act">algo-act</a></td></tr><tr><td>20–100 demos, multimodal behaviors</td><td><strong>Diffusion Policy</strong></td><td>Captures multimodal distributions; +46.9% vs prior SOTA</td><td><a href="./algo-diffusion-policy" class="internal internal-link" data-slug="algo-diffusion-policy">algo-diffusion-policy</a></td></tr><tr><td>50+ demos, long-horizon multi-stage</td><td><strong>Diffusion Policy + Mamba2Diff</strong></td><td>Temporal SSM for long sequences</td><td><a href="./imitation-learning" class="internal internal-link" data-slug="imitation-learning">imitation-learning</a></td></tr><tr><td>Have demos but want to exceed demonstrator</td><td><strong>AWAC / HITL-RL</strong></td><td>Bootstraps from demos then improves with RL</td><td><a href="./algo-awac" class="internal internal-link" data-slug="algo-awac">algo-awac</a>, <a href="./algo-hitl-rl" class="internal internal-link" data-slug="algo-hitl-rl">algo-hitl-rl</a></td></tr><tr><td>Long-horizon from unstructured human video</td><td><strong>Relay Policy Learning</strong></td><td>Hierarchical IL+RL from unstructured demos</td><td><a href="./algo-relay-policy" class="internal internal-link" data-slug="algo-relay-policy">algo-relay-policy</a></td></tr><tr><td>Language-conditioned, many objects, compute available</td><td><strong>OpenVLA (fine-tune)</strong></td><td>7B open-source, strong language grounding, QLoRA-fine-tunable</td><td><a href="./algo-openvla" class="internal internal-link" data-slug="algo-openvla">algo-openvla</a></td></tr><tr><td>Language-conditioned, limited compute</td><td><strong>SmolVLA</strong></td><td>450M, community data, async inference, 40% faster than π0</td><td><a href="./vision-language-action-models" class="internal internal-link" data-slug="vision-language-action-models">vision-language-action-models</a></td></tr><tr><td>Cross-embodiment, state-of-the-art frontier</td><td><strong>GR 1.5 / π0</strong></td><td>Multi-embodiment, thinking VLA, 10M+ demos</td><td><a href="./algo-gemini-robotics-15" class="internal internal-link" data-slug="algo-gemini-robotics-15">algo-gemini-robotics-15</a></td></tr></tbody></table></div>
+<hr/>
+<h2 id="step-4--family-profiles-advantages-limits-training-deployment">Step 4 — Family profiles (advantages, limits, training, deployment)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-4--family-profiles-advantages-limits-training-deployment" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A complete picture of each family: what it’s good at, where it breaks, how you actually train and deploy it, and what the practical constraints are.</p>
+<hr/>
+<h3 id="-reinforcement-learning-rl">🎯 Reinforcement Learning (RL)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-reinforcement-learning-rl" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="-key-advantages">✅ Key advantages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-key-advantages" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>No demonstrations needed</strong> — only a reward signal and a simulator. The robot discovers strategies from scratch, including ones humans wouldn’t think of.</li>
+<li><strong>Can exceed human performance</strong> — unlike IL, RL is not bounded by demonstrator quality. With enough simulation time, it finds optimal policies.</li>
+<li><strong>Precise, repeatable control</strong> — RL policies learn exact joint trajectories that optimize the reward, producing very precise and consistent behavior on the trained task.</li>
+<li><strong>Reward shaping = task decomposition for free</strong> — breaking the task into subtasks with shaped rewards (approach → grasp → place) dramatically accelerates convergence and produces interpretable intermediate behaviors.</li>
+<li><strong>Strong in simulation</strong> — GPU-parallelized sim (MuJoCo, Isaac Sim) allows millions of training episodes per hour. <a href="./algo-sac" class="internal internal-link alias" data-slug="algo-sac">SAC</a> on a pick-and-place task converges in hours on a single GPU.</li>
+</ul>
+<h4 id="-hard-limits">❌ Hard limits<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-hard-limits" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Without a simulator</strong> — real-robot RL is extremely slow and risky. Exploration inevitably produces dangerous behaviors. The sim-to-real gap is a second tax on top.</li>
+<li><strong>Without a reward</strong> — if you can’t specify “success” as a scalar number, RL has nothing to optimize. Reward design is often the hardest part and can take as long as the training itself.</li>
+<li><strong>No generalization</strong> — a <a href="./algo-sac" class="internal internal-link alias" data-slug="algo-sac">SAC</a> policy trained to pick a red cube from bin A will fail on a green cube, a different bin, or different lighting. RL policies are highly task-specific by nature.</li>
+</ul>
+<h4 id="-how-to-train-sac--ppo">🔧 How to train (<a href="./algo-sac" class="internal internal-link alias" data-slug="algo-sac">SAC</a> / <a href="./algo-ppo" class="internal internal-link alias" data-slug="algo-ppo">PPO</a>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-how-to-train-sac--ppo" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>1. Choose a simulator</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Simulator</th><th>Best for</th><th>Notes</th></tr></thead><tbody><tr><td>MuJoCo / MJX</td><td>Contact-rich tasks, fast physics</td><td>Open-source; GPU via MJX</td></tr><tr><td>Isaac Sim (NVIDIA)</td><td>Photorealistic, massive parallelism</td><td>Good for sim-to-real visual transfer</td></tr><tr><td>Robosuite</td><td>Manipulation benchmarks, easy setup</td><td>Built on MuJoCo, standardized tasks</td></tr><tr><td>PyBullet</td><td>Lightweight, accessible</td><td>Less accurate contact dynamics</td></tr></tbody></table></div>
+<p><strong>2. Define the MDP</strong></p>
+<ul>
+<li><strong>State space</strong>: joint positions + velocities, gripper state, object pose (from sim ground truth or estimated from camera). For real transfer, prefer using only observations available on real hardware.</li>
+<li><strong>Action space</strong>: joint velocity deltas (<a href="./algo-sac" class="internal internal-link alias" data-slug="algo-sac">SAC</a> default) or end-effector delta pose (more intuitive reward design). End-effector control simplifies reward shaping but adds IK overhead.</li>
+<li><strong>Episode length</strong>: enough for the task (e.g. 200 steps at 20 Hz = 10 seconds for P&amp;P). Too short = never succeeds; too long = learns to stall.</li>
+</ul>
+<p><strong>3. Design the reward — the most important step</strong></p>
+<ul>
+<li><strong>Decompose into subtasks</strong> (approach → grasp → place). Each subtask gets its own shaped reward term. This is the single most impactful choice for convergence speed.</li>
+<li><strong>Use normalized distance rewards</strong>: <code>r = 1 - tanh(distance / scale)</code> — bounded in [0,1], avoids reward scale issues across subtasks.</li>
+<li><strong>Add success bonus</strong>: binary +1 when task completes. This shapes the end condition clearly.</li>
+<li><strong>Penalize dangerous actions</strong>: penalize excessive joint torques or end-effector forces to protect hardware.</li>
+<li><strong>Avoid reward hacking</strong>: if the robot finds a way to maximize reward without completing the task (e.g., dragging the object), add a penalty for that behavior.</li>
+<li><strong><a href="./algo-her" class="internal internal-link alias" data-slug="algo-her">HER</a> for sparse signals</strong>: if you can only provide binary success/failure, use <a href="./algo-her" class="internal internal-link alias" data-slug="algo-her">Hindsight Experience Replay</a> — it turns every failed episode into useful data.</li>
+</ul>
+<p><strong>4. Algorithm choice</strong></p>
+<ul>
+<li><strong><a href="./algo-sac" class="internal internal-link alias" data-slug="algo-sac">SAC</a></strong> — default choice for continuous action manipulation. Auto-tunes entropy coefficient α; off-policy so data-efficient; twin critics prevent Q-value overestimation.</li>
+<li><strong><a href="./algo-ppo" class="internal internal-link alias" data-slug="algo-ppo">PPO</a></strong> — better for discrete actions or when sample efficiency matters less than training stability. Simpler to implement.</li>
+<li><strong><a href="./algo-cql" class="internal internal-link alias" data-slug="algo-cql">CQL</a></strong> — when you have offline data (previous robot runs) you want to reuse before online training.</li>
+</ul>
+<p><strong>5. Training loop</strong></p>
+<ul>
+<li>Start with 0 exploration steps, let <a href="./algo-sac" class="internal internal-link alias" data-slug="algo-sac">SAC</a>’s initial random policy fill the replay buffer (typically 1k–10k steps).</li>
+<li>Monitor: reward curves, success rate, entropy (α). A falling entropy with no reward increase = policy collapsed early.</li>
+<li><strong>Curriculum</strong>: start with the object close to the robot (easy), progressively randomize its position more widely. This is much faster than training on the full distribution from step 0.</li>
+<li>Run <strong>at least 1M steps</strong> for P&amp;P with <a href="./algo-sac" class="internal internal-link alias" data-slug="algo-sac">SAC</a>. Evaluate every 50k steps on a fixed held-out set of 100 initial configs.</li>
+</ul>
+<h4 id="️-building-robustness--rl">🛡️ Building robustness — RL<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-building-robustness--rl" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>The core technique is <strong>domain randomization</strong>: training with varied conditions so the policy doesn’t overfit to any specific configuration. Apply these during training, not just at test time.</p>
+<p><strong>Visual robustness</strong></p>
+<ul>
+<li><strong>Lighting</strong>: randomize ambient light intensity (±30%), add directional lights, vary shadow direction and intensity. In sim: randomize light position/color each episode.</li>
+<li><strong>Camera pose</strong>: add small random perturbations to camera position (+/- 2cm) and orientation (+/- 3°) each episode.</li>
+<li><strong>Background / table texture</strong>: randomize table surface texture (colors, patterns). This prevents the policy from using table color as a cue.</li>
+<li><strong>Object color/texture</strong>: if using visual observations, randomize object appearance. A policy trained only on a red cube will fail on a blue cube.</li>
+<li><strong>Object distractors</strong>: add irrelevant objects (different shapes, colors) in the scene that should not be grasped. Forces the policy to be selective based on task instruction or reward signal.</li>
+</ul>
+<p><strong>Spatial robustness</strong></p>
+<ul>
+<li><strong>Object position</strong>: sample object starting position uniformly from a region (not a fixed point). Gradually increase the region size as training progresses (curriculum).</li>
+<li><strong>Object orientation</strong>: randomize in-plane rotation (0–360°) and out-of-plane tilt (±15°) for objects with rotational symmetry. For non-symmetric objects, vary orientation to cover all grasping faces.</li>
+<li><strong>Goal position</strong>: randomize the placement target location within a valid region.</li>
+<li><strong>Robot starting pose</strong>: vary initial joint configuration slightly to prevent the policy from memorizing a fixed approach trajectory.</li>
+</ul>
+<p><strong>Dynamics robustness</strong></p>
+<ul>
+<li><strong>Object mass/friction</strong>: randomize ±20% around nominal values. This is critical for sim-to-real — real objects have different mass/friction than sim defaults.</li>
+<li><strong>Joint damping</strong>: vary robot joint damping to simulate motor wear and hardware variation.</li>
+<li><strong>Latency</strong>: add random observation delays (1–3 timesteps) to simulate sensor/communication latency on real hardware.</li>
+<li><strong>Gripper compliance</strong>: vary gripper force/stiffness to simulate real pneumatic/servo gripper variation.</li>
+</ul>
+<p><strong>Sim-to-real calibration checklist</strong></p>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Camera intrinsics/extrinsics match real setup</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Object mass and friction calibrated from real measurements</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Joint PD gains match real robot controller</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Contact model validated on sample grasps</li>
+</ul>
+<h4 id="-how-to-deploy">🚀 How to deploy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-how-to-deploy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Export policy</strong>: save SAC actor network (small MLP or CNN) as ONNX or TorchScript for efficient inference</li>
+<li><strong>ROS/ROS2 wrapper</strong>: policy node reads joint states + camera frames → outputs joint velocity commands at 20–50 Hz</li>
+<li><strong>Sim-to-real calibration</strong>: run the same sim environment with real camera feed to check visual alignment before first real run</li>
+<li><strong>Expect a sim-to-real drop</strong>: typically 10–20 pp. Budget time for real-world fine-tuning (<a href="./algo-cql" class="internal internal-link alias" data-slug="algo-cql">CQL</a> on real rollouts, or <a href="./algo-hitl-rl" class="internal internal-link alias" data-slug="algo-hitl-rl">HITL-RL</a> for targeted corrections)</li>
+<li><strong>Safety layer</strong>: add joint limit checks and velocity clipping as a safety wrapper around the policy output</li>
+</ul>
+<h4 id="️-key-constraints">⚠️ Key constraints<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-key-constraints" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Constraint</th><th>Typical value</th><th>Notes</th></tr></thead><tbody><tr><td>Training time (sim)</td><td>Hours on 1 GPU</td><td>With fast parallelized sim</td></tr><tr><td>Training time (real)</td><td>Days–weeks</td><td>Exploration is slow on hardware</td></tr><tr><td>Data needed</td><td>0 demos</td><td>Only a reward function</td></tr><tr><td>Inference speed</td><td>Very fast (&lt;1ms)</td><td>Policy is a small MLP or CNN</td></tr><tr><td>Generalization scope</td><td>Single task/setup</td><td>Retraining needed for new objects</td></tr><tr><td>Hardware risk</td><td>High (exploration)</td><td>Mitigated by sim pretraining</td></tr></tbody></table></div>
+<hr/>
+<h3 id="-imitation-learning-il">🎭 Imitation Learning (IL)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-imitation-learning-il" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="-key-advantages-1">✅ Key advantages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-key-advantages-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>No reward design</strong> — the expert demonstrates the task; the policy learns the behavior directly. This eliminates the hardest part of RL (reward engineering).</li>
+<li><strong>Safe training</strong> — no exploration. The policy only produces actions that look like the demonstrations. Zero risk of unexpected robot behavior during training.</li>
+<li><strong>Fast convergence from few demos</strong> — <a href="./algo-act" class="internal internal-link alias" data-slug="algo-act">ACT</a> achieves 80–90% success from ~10 minutes of demonstrations. <a href="./algo-diffusion-policy" class="internal internal-link alias" data-slug="algo-diffusion-policy">Diffusion Policy</a> extracts rich multimodal information from 20–100 demos. No simulator needed.</li>
+<li><strong>Captures implicit human knowledge</strong> — force modulation, grasp approach angles, timing — things that are easy to demonstrate but nearly impossible to specify as a reward function.</li>
+<li><strong>Works directly on real hardware</strong> — no sim-to-real gap. Demonstrations are collected on the target robot in the target environment.</li>
+</ul>
+<h4 id="-hard-limits-1">❌ Hard limits<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-hard-limits-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Can’t exceed demonstrator performance</strong> — the policy learns what was shown. Inconsistent or suboptimal demos average into a suboptimal policy.</li>
+<li><strong>Distribution shift</strong> — as soon as the robot reaches a state not covered by demos (which it will), performance degrades. Errors compound over time steps.</li>
+<li><strong>Data collection cost</strong> — quality demonstrations require time and setup. 20–50 teleoperated demos via SpaceMouse or kinesthetic teaching take 1–3 hours. Bimanual setups (ALOHA) require expensive hardware.</li>
+<li><strong>Brittle to visual changes</strong> — different lighting, slightly different camera angle, new object appearance all cause performance drops not seen during training.</li>
+</ul>
+<h4 id="-how-to-train-act--diffusion-policy">🔧 How to train (ACT / Diffusion Policy)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-how-to-train-act--diffusion-policy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>1. Demo collection protocol — quality over quantity</strong></p>
+<p>The most important investment is <em>how</em> you collect demonstrations, not just how many.</p>
+<ul>
+<li><strong>Teleoperation</strong> (SpaceMouse, ALOHA leader arm): captures both position and velocity intent; best for dexterous tasks. Preferred for P&amp;P and assembly.</li>
+<li><strong>Kinesthetic teaching</strong> (manually guide the robot): faster to set up, but physical contact with the robot can introduce noise and inconsistency.</li>
+<li><strong>Human video + retargeting</strong> (<a href="./imitation-learning#easymimic" class="internal internal-link alias" data-slug="imitation-learning">EasyMimic</a>): requires no robot during demo collection, but retargeting to robot kinematics introduces error.</li>
+</ul>
+<p><strong>Collection consistency rules</strong> (critical — inconsistent demos are worse than fewer consistent ones):</p>
+<ul>
+<li>Fix camera position and lighting before any recording — do not move either mid-dataset</li>
+<li>Standardize grasp approach: always approach from the same angle, same height</li>
+<li>Standardize speed: too fast → noisy trajectories; too slow → policy learns to be sluggish</li>
+<li>Collect demos across the <strong>full intended operating range</strong> of object positions, not just the center</li>
+<li>Record a minimum of 3–5 demos per condition you care about. 1–2 is not enough for statistical coverage.</li>
+</ul>
+<p><strong>Data filtering</strong>:</p>
+<ul>
+<li>Watch each demo before keeping it. Discard demos with hesitations, unexpected grasps, or failures mid-demo.</li>
+<li>Compute trajectory smoothness score (e.g., jerk) and flag outliers for manual review.</li>
+</ul>
+<p><strong>2. Architecture choice</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Situation</th><th>Architecture</th><th>Why</th></tr></thead><tbody><tr><td>Few demos (10–30), precise task</td><td><strong><a href="./algo-act" class="internal internal-link alias" data-slug="algo-act">ACT</a></strong></td><td>β-CVAE latent captures behavioral modes; chunking reduces error compounding</td></tr><tr><td>Many demos (50+), multimodal grasps</td><td><strong><a href="./algo-diffusion-policy" class="internal internal-link alias" data-slug="algo-diffusion-policy">Diffusion Policy</a></strong></td><td>DDPM covers full multimodal distribution; +46.9% vs prior SOTA</td></tr><tr><td>Long-horizon (5+ steps)</td><td><strong><a href="./imitation-learning" class="internal internal-link alias" data-slug="imitation-learning">Mamba2Diff</a></strong></td><td>SSM handles temporal dependencies across long sequences</td></tr><tr><td>Fast inference needed (&lt;10ms)</td><td><strong><a href="./algo-act" class="internal internal-link alias" data-slug="algo-act">ACT</a></strong> or <strong><a href="./algo-vq-bet" class="internal internal-link alias" data-slug="algo-vq-bet">VQ-BeT</a></strong></td><td>VQ-BeT is 5× faster than Diffusion Policy</td></tr></tbody></table></div>
+<p><strong>3. Training details — <a href="./algo-act" class="internal internal-link alias" data-slug="algo-act">ACT</a></strong></p>
+<ul>
+<li><strong>Chunk size (k)</strong>: typically 50–100 timesteps (1–5 seconds at 20 Hz). Larger chunks reduce boundary artifacts but increase latency.</li>
+<li><strong>β parameter</strong> (KL weight in β-CVAE): controls latent space compression. Higher β = smoother but less expressive. Start at β=10, tune based on rollout smoothness.</li>
+<li><strong>Training budget</strong>: 50k–200k gradient steps. Use learning rate warmup (1k steps) and cosine decay.</li>
+<li><strong>Validation</strong>: reserve 10–20% of demos as a held-out set. Monitor reconstruction loss on held-out trajectories, not just training loss.</li>
+</ul>
+<p><strong>3b. Training details — <a href="./algo-diffusion-policy" class="internal internal-link alias" data-slug="algo-diffusion-policy">Diffusion Policy</a></strong></p>
+<ul>
+<li><strong>Noise schedule</strong>: <a href="./algo-diffusion-policy" class="internal internal-link alias" data-slug="algo-diffusion-policy">DDPM</a> with 100 denoising steps at training; can reduce to 10–25 at inference with DDIM.</li>
+<li><strong>Action horizon</strong>: predict 16–32 future steps; execute 8. Receding horizon reduces commitment error.</li>
+<li><strong>Visual encoder</strong>: typically a pre-trained ResNet or ViT. Freeze or fine-tune depending on how different your visual domain is from ImageNet.</li>
+</ul>
+<p><strong>4. Preprocessing</strong></p>
+<ul>
+<li>Normalize all joint positions to [-1, 1] using dataset min/max</li>
+<li>Normalize images to [0, 1], apply mean/std normalization using dataset statistics</li>
+<li>Align timestamps between camera stream and joint recordings (off-by-one-frame errors are common)</li>
+</ul>
+<h4 id="️-building-robustness--il">🛡️ Building robustness — IL<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-building-robustness--il" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>For IL, robustness comes primarily from <strong>demo diversity</strong> (you control what the policy sees at training time) and <strong>data augmentation</strong> (synthetic variation applied to existing demos).</p>
+<p><strong>Demo diversity — collect across the full variation space</strong></p>
+<p>This is the most important robustness lever for IL. The policy can only generalize to conditions it has seen during training.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Variation axis</th><th>What to do</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Object position</strong></td><td>Sample positions on a grid or randomly across the target workspace. At minimum: 3–4 distinct positions covering corners + center</td><td>If you only demo center positions, expect failure near edges</td></tr><tr><td><strong>Object orientation</strong></td><td>Collect demos at 0°, 45°, 90°, 135° for symmetric objects. For asymmetric objects, cover all valid grasp faces</td><td>Even small rotations (15°) can break <a href="./algo-act" class="internal internal-link alias" data-slug="algo-act">ACT</a> if not covered</td></tr><tr><td><strong>Lighting conditions</strong></td><td>Collect some demos under different ambient lighting (bright/dim, window vs artificial). Even 5–10 demos per condition helps</td><td>Minimal cost; large robustness gain</td></tr><tr><td><strong>Object distractors</strong></td><td>Add irrelevant objects to the scene in some demos (10–20% of dataset). The policy should learn to ignore them</td><td>A policy never trained with distractors will try to grasp them</td></tr><tr><td><strong>Grasp alternatives</strong></td><td>If multiple valid grasps exist (left/right approach), deliberately include both in the dataset</td><td><a href="./algo-diffusion-policy" class="internal internal-link alias" data-slug="algo-diffusion-policy">Diffusion Policy</a> handles this well; <a href="./algo-act" class="internal internal-link alias" data-slug="algo-act">ACT</a> needs both in the β-CVAE latent</td></tr><tr><td><strong>Table height / workspace variation</strong></td><td>If deployment height varies slightly, include this variation in demos</td><td>Often overlooked; 1cm height difference can break a policy</td></tr></tbody></table></div>
+<p><strong>Data augmentation — synthetic variation at training time</strong></p>
+<p>Applied to recorded demos during training, not during collection. These are cheap and effective:</p>
+<ul>
+<li><strong>Color jitter</strong> (brightness ±20%, contrast ±20%, saturation ±20%, hue ±5%): makes the visual encoder invariant to minor lighting changes. Apply to every image before it enters the network.</li>
+<li><strong>Random crop</strong> (crop to 90% of image, then resize back): builds spatial invariance within the image frame.</li>
+<li><strong>Gaussian noise on joint positions</strong> (σ ≈ 0.002 rad): improves robustness to encoder position noise.</li>
+<li><strong>Random cutout / masking</strong> (mask 10–20% of image randomly): forces the policy to not rely on a single visual cue.</li>
+<li><strong>Do NOT augment the action trajectory</strong> — only augment the input observations. Augmenting actions introduces inconsistency between observations and actions.</li>
+</ul>
+<p><strong>What augmentation does NOT fix</strong>:</p>
+<ul>
+<li>New object types / appearances not in the dataset</li>
+<li>Completely different lighting (not just ±20% variation)</li>
+<li>Object positions outside the demonstrated range</li>
+<li>Camera pose changes beyond a few degrees</li>
+</ul>
+<h4 id="-how-to-deploy-1">🚀 How to deploy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-how-to-deploy-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Load policy + preprocessors</strong>: load trained weights, normalization stats, and image preprocessing pipeline together</li>
+<li><strong>Action chunking (<a href="./algo-act" class="internal internal-link alias" data-slug="algo-act">ACT</a>)</strong>: predict chunk of k actions → execute at hardware frequency → re-query policy at chunk boundary (or every n steps with temporal ensembling)</li>
+<li><strong>Temporal ensembling</strong>: query policy every step, take weighted average of overlapping predictions — smoother execution, slightly higher compute</li>
+<li><strong>Async inference (<a href="./algo-diffusion-policy" class="internal internal-link alias" data-slug="algo-diffusion-policy">Diffusion Policy</a>)</strong>: run inference at 5–10 Hz on GPU server; robot client executes from action queue at 20–50 Hz</li>
+<li><strong>Monitor for distribution shift</strong>: if execution deviates significantly from training trajectories (measure joint position error vs expected), flag for human correction or re-demonstration (DAgger, <a href="./algo-hitl-rl" class="internal internal-link alias" data-slug="algo-hitl-rl">HITL-RL</a>)</li>
+<li><strong>Recovery</strong>: when failure detected, return to a known safe state (home position) before retrying</li>
+</ul>
+<h4 id="️-key-constraints-1">⚠️ Key constraints<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-key-constraints-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Constraint</th><th>Typical value</th><th>Notes</th></tr></thead><tbody><tr><td>Demo collection time</td><td>1–4 hours</td><td>For 20–50 demos on a single task</td></tr><tr><td>Training time</td><td>1–4 hours (consumer GPU)</td><td>Fast compared to RL</td></tr><tr><td>Data needed</td><td>10–100 demos</td><td>Quality > quantity</td></tr><tr><td>Inference speed</td><td>Fast (ACT: &lt;10ms)</td><td>Diffusion Policy: ~50–200ms per step</td></tr><tr><td>Generalization scope</td><td>Fixed setup</td><td>New objects/positions require new demos</td></tr><tr><td>Hardware risk</td><td>Very low</td><td>No exploration, pure imitation</td></tr></tbody></table></div>
+<hr/>
+<h3 id="-vision-language-action-models-vlas">🌐 Vision-Language-Action Models (VLAs)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-vision-language-action-models-vlas" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="-key-advantages-2">✅ Key advantages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-key-advantages-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Semantic generalization</strong> — understands natural language instructions (“pick the mug on the left”) without per-instruction training. Inherited from internet-scale pretraining.</li>
+<li><strong>Novel object generalization</strong> — recognizes and grasps objects not seen during fine-tuning because the visual backbone already understands object categories.</li>
+<li><strong>Low fine-tuning data requirement</strong> — 50–200 demonstrations can produce a model that generalizes broadly, because the backbone already handles perception and reasoning.</li>
+<li><strong>Cross-embodiment transfer</strong> — models like <a href="./algo-octo" class="internal internal-link alias" data-slug="algo-octo">Octo</a>, X-VLA, and <a href="./algo-gemini-robotics-15" class="internal internal-link alias" data-slug="algo-gemini-robotics-15">GR 1.5</a> can transfer across different robot hardware with minimal additional data.</li>
+<li><strong>Language as a free interface</strong> — no task-specific programming. “Sort the objects by color” works if the model understands color, without any task-specific demo for that exact sorting criterion.</li>
+</ul>
+<h4 id="-hard-limits-2">❌ Hard limits<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-hard-limits-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Geometric precision gap</strong> — VLAs fail on tight tolerance tasks (peg-in-hole, connector insertion, assembly). They predict joint targets from images without modeling contact forces. This is a fundamental gap with current architectures.</li>
+<li><strong>Inference speed</strong> — 7B models run at 1–6 Hz. Even SmolVLA (450M) may not reach 20 Hz without async inference. High-frequency dexterous control is out of reach without special engineering.</li>
+<li><strong>Fine-tuning data quality</strong> — bad demonstrations are confidently reproduced. Unlike RL (which can self-correct via reward), IL-based VLA fine-tuning has no self-correction mechanism.</li>
+<li><strong>Compute cost</strong> — even the smallest production VLAs (450M+) require a GPU for both training and inference. Not deployable on embedded hardware.</li>
+<li><strong>Black-box behavior</strong> — it’s difficult to understand why a VLA fails. The failure mode could be perception, reasoning, or action generation — and they’re entangled in a single forward pass.</li>
+</ul>
+<h4 id="-how-to-train--fine-tune-smolvla--openvla">🔧 How to train / fine-tune (SmolVLA / OpenVLA)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-how-to-train--fine-tune-smolvla--openvla" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>1. Choose the base model</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Model</th><th>Parameters</th><th>Hardware needed</th><th>Best for</th></tr></thead><tbody><tr><td><a href="./vision-language-action-models" class="internal internal-link alias" data-slug="vision-language-action-models">SmolVLA</a></td><td>~450M</td><td>Single consumer GPU (8GB+)</td><td>Accessible; community data; SO-100 compatible</td></tr><tr><td><a href="./algo-openvla" class="internal internal-link alias" data-slug="algo-openvla">OpenVLA</a></td><td>7B</td><td>48GB GPU (or 4×A100 without <a href="./algo-qlora" class="internal internal-link alias" data-slug="algo-qlora">QLoRA</a>)</td><td>Strong language grounding; well-documented</td></tr><tr><td><a href="./vision-language-action-models" class="internal internal-link alias" data-slug="vision-language-action-models">π0</a></td><td>3.3B</td><td>24GB GPU (quantized)</td><td>Flow matching; large pretrain corpus</td></tr><tr><td><a href="./algo-gemini-robotics-15" class="internal internal-link alias" data-slug="algo-gemini-robotics-15">GR 1.5</a></td><td>—</td><td>API only</td><td>Multi-embodiment; thinking VLA; closed</td></tr></tbody></table></div>
+<p><strong>2. Collect and structure fine-tuning demos</strong></p>
+<ul>
+<li><strong>Format</strong>: use LeRobotDataset (tabular joint data + MP4 videos + JSON metadata). This ensures compatibility with all HuggingFace VLA training pipelines.</li>
+<li><strong>Quantity</strong>: 50–200 demos covers most fixed-task setups. More demos → better generalization, but diminishing returns after ~100 for a single task.</li>
+<li><strong>Language annotation</strong>: every demo must have a clear, consistent language instruction. Use a fixed vocabulary (“pick the [color] [object] and place it in the [location]”). Inconsistent wording degrades instruction grounding.</li>
+<li><strong>Camera setup</strong>: follow the model’s expected camera configuration (SmolVLA expects top/wrist/side views in a standardized order). Document your camera-to-model mapping.</li>
+<li><strong>Re-annotation tool</strong>: if instructions are missing or noisy, run a small off-the-shelf VLM (e.g., LLaVA, GPT-4V) on sampled frames to generate standardized task descriptions — same technique used to build SmolVLA’s training set.</li>
+</ul>
+<p><strong>3. Fine-tuning with LoRA / <a href="./algo-qlora" class="internal internal-link alias" data-slug="algo-qlora">QLoRA</a></strong></p>
+<ul>
+<li><strong>LoRA rank</strong>: r=8 or r=16 is typically enough for single-task adaptation. Higher rank = more capacity but more parameters to update and higher overfitting risk.</li>
+<li><strong>Target modules</strong>: attention layers (Q, K, V, O projections). Optionally include the action head fully (no LoRA on the action expert).</li>
+<li><strong><a href="./algo-qlora" class="internal internal-link alias" data-slug="algo-qlora">QLoRA</a> (for large models)</strong>: 4-bit NF4 quantization of the frozen backbone + full-precision LoRA adapters. Enables 7B fine-tuning on a single 48GB GPU.</li>
+<li><strong>Learning rate</strong>: 1e-4 to 5e-5 for LoRA adapters. Use cosine decay with 100-step warmup.</li>
+<li><strong>Epochs</strong>: 10–50 epochs on a small dataset. Monitor held-out success rate, not just training loss — VLAs can memorize demos without generalizing.</li>
+<li><strong>Frozen vs full fine-tune</strong>: LoRA (frozen backbone + adapters) is strongly preferred. Full fine-tuning on a small dataset destroys the pretrained language/vision knowledge.</li>
+</ul>
+<p><strong>4. Instruction design</strong></p>
+<ul>
+<li>Keep instructions <strong>action-grounded</strong> (“pick the red cube and place it in the blue bin”) rather than abstract (“sort the objects”).</li>
+<li>Include <strong>instruction paraphrases</strong> in the dataset: “pick up the red cube”, “grab the red block”, “take the red object” all map to the same demo. This significantly improves instruction-level generalization.</li>
+<li>For object differentiation: include color, size, and/or position descriptors (“the small red cube on the left”). The model’s pretrained vocabulary covers most common objects and colors.</li>
+</ul>
+<h4 id="️-building-robustness--vla">🛡️ Building robustness — VLA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-building-robustness--vla" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>VLA robustness comes from two sources: <strong>fine-tuning data diversity</strong> (same principles as IL) and <strong>leveraging the pretrained backbone’s existing robustness</strong>.</p>
+<p><strong>What the pretrained backbone already handles</strong>
+VLAs start with a backbone trained on billions of images from diverse conditions. This means some robustness to lighting changes, object appearance, and background variation is <em>already built in</em> — unlike IL policies trained from scratch. The fine-tuning stage mainly needs to teach <em>how to act on this specific robot</em> rather than <em>how to perceive the world</em>.</p>
+<p><strong>What fine-tuning data still needs to cover</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Variation axis</th><th>How much diversity needed</th><th>vs IL</th></tr></thead><tbody><tr><td>Object color/texture</td><td>Low — backbone generalizes</td><td>IL needs explicit demos</td></tr><tr><td>Object position</td><td>Moderate — cover operating workspace</td><td>Same as IL</td></tr><tr><td>Object orientation</td><td>Moderate — especially non-symmetric objects</td><td>Same as IL</td></tr><tr><td>Lighting</td><td>Low — pretrained backbone robust</td><td>IL needs lighting demos</td></tr><tr><td>Distractors</td><td>Low-moderate — backbone recognizes them</td><td>IL more fragile to distractors</td></tr><tr><td>Instruction paraphrases</td><td><strong>High</strong> — unique to VLAs</td><td>Not applicable to IL</td></tr><tr><td>New object <em>categories</em></td><td><strong>High</strong> — include diverse objects</td><td>Not applicable to IL</td></tr></tbody></table></div>
+<p><strong>Data augmentation for VLA fine-tuning</strong></p>
+<ul>
+<li><strong>Visual augmentation</strong> (same as IL): color jitter, random crop, cutout. Apply to fine-tuning images.</li>
+<li><strong>Instruction augmentation</strong>: generate 3–5 paraphrases per unique instruction using a language model. Feed all paraphrases during training. This is the most impactful augmentation unique to VLAs.</li>
+<li><strong>Negative instructions</strong>: include a small fraction of demos where the instruction does NOT match the demonstrated task, labeled as incorrect. Trains the model to reject ill-formed instructions rather than hallucinating a response.</li>
+</ul>
+<p><strong>Failure mode unique to VLAs</strong>: <strong>instruction hallucination</strong> — the model confidently executes a plausible-sounding task that was not requested. This is rare for simple instructions but appears with ambiguous or complex prompts. Mitigation: keep instructions simple and unambiguous, and add a success-detection step after each action.</p>
+<h4 id="-how-to-deploy-2">🚀 How to deploy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-how-to-deploy-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Policy server + robot client</strong> (LeRobot async inference stack): VLA inference on GPU server → action chunks buffered → robot executes at hardware frequency (20–50 Hz)</li>
+<li><strong>Quantized inference</strong>: 4-bit quantization allows 7B models on a single 24GB GPU with &lt;5% performance drop</li>
+<li><strong>Language interface at runtime</strong>: send instruction string; VLA handles grounding without retraining</li>
+<li><strong>Action chunk execution</strong>: VLAs typically predict 50-step chunks (like ACT). Execute the chunk, then re-query with updated observation.</li>
+<li><strong>Failure recovery</strong>: add a lightweight success classifier (binary: did the subtask complete?) between action chunks. On failure, either re-issue the instruction or fall back to a recovery primitive (see <a href="./algo-gemini-robotics-15" class="internal internal-link alias" data-slug="algo-gemini-robotics-15">GR-ER 1.5</a> for a production example of this pattern).</li>
+<li><strong>Inference latency budget</strong>: <a href="./vision-language-action-models" class="internal internal-link alias" data-slug="vision-language-action-models">SmolVLA</a> at 450M generates a 50-step chunk in ~200ms on a GPU — acceptable for most tasks. For faster loops, reduce chunk size or use async inference.</li>
+</ul>
+<h4 id="️-key-constraints-2">⚠️ Key constraints<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-key-constraints-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Constraint</th><th>Typical value</th><th>Notes</th></tr></thead><tbody><tr><td>Fine-tuning time</td><td>4–24 hours (1 GPU)</td><td>Depends on model size and LoRA rank</td></tr><tr><td>Data needed</td><td>50–200 fine-tune demos</td><td>Pretrained backbone handles the rest</td></tr><tr><td>Inference speed</td><td>1–6 Hz (7B), 5–15 Hz (450M)</td><td>Async inference partially compensates</td></tr><tr><td>Generalization scope</td><td>Broad (language-conditioned)</td><td>Best generalization of the 3 families</td></tr><tr><td>Hardware at inference</td><td>GPU required</td><td>Min ~8GB VRAM for quantized 7B</td></tr><tr><td>Hardware risk</td><td>Low</td><td>Same as IL — pure inference</td></tr></tbody></table></div>
+<hr/>
+<h2 id="step-5--how-to-evaluate--go-to-evaluation-protocol">Step 5 — How to evaluate — go to <a href="./evaluation-protocol" class="internal internal-link" data-slug="evaluation-protocol">evaluation-protocol</a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-5--how-to-evaluate--go-to-evaluation-protocol" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Once trained, all three families should be evaluated under the same standardized conditions to enable fair comparison. Rather than embedding the full protocol here, it lives in a dedicated page:</p>
+<p>→ <strong><a href="./evaluation-protocol" class="internal internal-link" data-slug="evaluation-protocol">evaluation-protocol</a></strong> — evaluation axes (in-distribution, near-OOD, far-OOD, robustness, perturbation), metrics, and the SO-100-specific test protocol</p>
+<hr/>
+<h2 id="step-6--hybrid-strategies-worth-knowing">Step 6 — Hybrid strategies worth knowing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-6--hybrid-strategies-worth-knowing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>When</th><th>Strategy</th><th>Mechanism</th></tr></thead><tbody><tr><td>Few demos + want improvement</td><td><strong>IL → RL (AWAC)</strong></td><td>BC initializes policy, RL fine-tunes online</td></tr><tr><td>Human-in-the-loop training</td><td><strong>HITL-RL</strong></td><td>Human corrections stored in replay buffer, 1-2h to near-perfect</td></tr><tr><td>Pre-trained VLA + RL alignment</td><td><strong>VLA-RL</strong></td><td>Online RL fine-tunes frozen VLA; process reward model handles sparse rewards</td></tr><tr><td>Sim pretraining + real fine-tuning</td><td><strong>CQL pretraining + SAC online</strong></td><td>Offline conservative Q-learning, then switch to online RL</td></tr></tbody></table></div>
+<hr/>
+<h2 id="step-7--rex-return-on-experience-so-100-pick-and-place">Step 7 — REX: Return on Experience (SO-100 Pick-and-Place)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#step-7--rex-return-on-experience-so-100-pick-and-place" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>This section compiles empirical observations from experiments on the <strong>SO-100</strong> robot arm. Each algorithm entry follows the same structure: setup, what worked, what didn’t, surprises, and a revised recommendation informed by reality. This is the section that makes the recommendations above concrete rather than theoretical.</p>
+<hr/>
+<h3 id="sac--soft-actor-critic">SAC — Soft Actor-Critic<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sac--soft-actor-critic" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Task:</strong> Pick-and-place on SO-100 in simulation (MuJoCo)<br/>
+<strong>Result:</strong> ✅ <strong>92% overall success (50 episodes)</strong></p>
+<h4 id="setup">Setup<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#setup" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Simulator: MuJoCo (CPU)</li>
+<li>State space: joint positions + gripper state + object/goal positions</li>
+<li>Action space: joint velocity deltas (continuous)</li>
+<li>Reward: 3-subtask decomposition (Reach / Grasp scripted / Place) from Kim et al. 2023 — weighted axis distance penalty + energy penalty</li>
+<li>Object position randomized ±7cm (fixed orientation), fixed box</li>
+</ul>
+<h4 id="what-worked">What worked<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-worked" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Task decomposition was the decisive lever.</strong> Splitting into 3 subtasks (Reach → scripted Grasp → Place) with per-subtask shaped rewards accelerated convergence dramatically vs. a single sparse signal.</li>
+<li><strong>Scripting the Grasp</strong> (100-step deterministic gripper close) eliminated one failure mode. The lesson: don’t learn what can be made deterministic.</li>
+<li><strong>Recovery system:</strong> if the cube falls (z ≤ 5cm) during Place, the state machine relaunches Reach. 8 drop recoveries in 50 episodes saved 8 episodes that would have failed.</li>
+<li><strong>Quantitative results (50 episodes):</strong> Reach 96% (48/50) · Grasp 92% (46/50) · Place 92% (46/50) · Overall 92% (46/50)</li>
+<li><strong>PPO vs SAC comparison (same env, 50% success threshold):</strong> SAC reaches 50% in 1.58M steps (5h); PPO in 3.17M steps (20 min). SAC is 2× more sample-efficient but slower wall-clock.</li>
+</ul>
+<h4 id="what-didnt-work">What didn’t work<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-didnt-work" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Generalization is hard.</strong> The policy was trained with fixed orientation and ±7cm position randomization. New orientations or larger position ranges require retraining.</li>
+<li><strong>Reward design took significant iteration.</strong> The energy penalty and per-axis weighting required empirical tuning before convergence was clean.</li>
+</ul>
+<h4 id="critical-assessment">Critical assessment<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#critical-assessment" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>SAC is the strongest baseline on this task in simulation. The 3-subtask decomposition pattern is directly reusable. The engineering cost is upfront (reward design: ~1–2 days of iteration) but the payoff is high (92% reliable sim policy). Real-hardware transfer remains untested — literature suggests 10–20 pp drop.</p>
+<blockquote>
+<p><strong>Revised recommendation:</strong> SAC + 3-subtask decomposition + scripted intermediate steps is the go-to for any simulation P&amp;P task. Add a recovery state machine from day one — it costs little and saves many episodes.</p>
+</blockquote>
+<hr/>
+<h3 id="act--action-chunking-with-transformers">ACT — Action Chunking with Transformers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#act--action-chunking-with-transformers" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Task:</strong> Pick-and-place on SO-100 (real hardware)<br/>
+<strong>Result:</strong> ✅ <strong>83% in-distribution / 94% at 45° orientation (Dataset_v4)</strong></p>
+<h4 id="setup-1">Setup<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#setup-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Dataset: Dataset_v4 (80 Phase 1 episodes + 15 recovery + 16 random orientation = ~111 episodes)</li>
+<li>Training: 100k steps, single GPU</li>
+<li>Cameras: wrist + side</li>
+<li>Teleoperation: ALOHA-style leader/follower with PID gain adjusted (P=4) for smooth trajectories</li>
+</ul>
+<h4 id="dataset-iteration-journey">Dataset iteration journey<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dataset-iteration-journey" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>v1 (50 eps, mono camera):</strong> Failed — environment not reproducible between training and eval. Policy replays training trajectory but can’t adapt to new cube position. Key lesson: <em>need a reproducible environment</em>.</li>
+<li><strong>v2 (80 eps, Phase 1):</strong> Approaches cube at ~10cm. Understands intention (always goes toward cube) but can’t get close enough. Hypothesis: low contrast — blue gripper confuses with black box.</li>
+<li><strong>v3 (80 eps + colored markers):</strong> Post-its on robot and box improve contrast. Approaches 5–7cm, slightly to the side. OOD: goes to closest known position, can’t reach new ones.</li>
+<li><strong>v4 (v3 + 15 recovery + 16 orientation eps):</strong> Final dataset. Solved orientation and recovery gaps.</li>
+</ul>
+<h4 id="what-worked-1">What worked<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-worked-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Recovery episodes were the game changer.</strong> Adding 15 episodes starting from failure situations (cube pushed, arm up, cube dropped) fixed the complete inability to recover seen in v2/v3.</li>
+<li><strong>Orientation diversity worked.</strong> 16 random orientation episodes made the 45° performance jump to 92–100%.</li>
+<li><strong>In-distribution performance is strong (83%).</strong> ACT reliably reproduces trained positions.</li>
+<li><strong>Surprising OOD generalization at 45°:</strong> 4/4 (100%) on unseen positions at 45° — better than at 0°. The varied orientation episodes created richer generalizable features.</li>
+<li><strong>Distractor robustness (75%):</strong> Handled well — ACT is not confused by a second object.</li>
+</ul>
+<h4 id="what-didnt-work-1">What didn’t work<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-didnt-work-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>OOD at 0° is moderate (50%).</strong> When the cube is at a completely unseen position in the standard orientation, ACT goes to the nearest known position and tries to close the gripper there.</li>
+<li><strong>Jerky movements</strong> persist at some steps — the PID tuning helped but didn’t fully resolve smoothness.</li>
+</ul>
+<h4 id="critical-assessment-1">Critical assessment<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#critical-assessment-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>ACT outperformed SmolVLA on all tested conditions with this dataset volume (~111 episodes). The key insight is that <strong>data composition matters more than algorithm choice</strong> — each dataset iteration (v1→v4) drove more improvement than any hyperparameter change.</p>
+<blockquote>
+<p><strong>Revised recommendation:</strong> ACT with 80–100 well-structured episodes (varied positions, orientations, AND recovery situations) achieves 83–94% on real hardware without any reward design. The mandatory ingredients are: PID-calibrated teleop hardware, reproducible eval environment, and deliberate coverage of failure modes in the dataset.</p>
+</blockquote>
+<hr/>
+<h3 id="smolvla--small-vision-language-action-model">SmolVLA — Small Vision-Language-Action Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#smolvla--small-vision-language-action-model" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Task:</strong> Pick-and-place on SO-100 (real hardware)<br/>
+<strong>Result:</strong> ✅ <strong>58% in-distribution / 0% with distractor (Dataset_v4)</strong></p>
+<h4 id="setup-2">Setup<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#setup-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Base model: SmolVLA (~450M parameters, HuggingFace, pre-trained on SO-100/SO-101 community datasets)</li>
+<li>Fine-tuning: Dataset_v4, 20k steps, 4 GPUs (AWS g5.12xlarge)</li>
+<li>Same dataset as ACT (Dataset_v4)</li>
+<li>Language instruction: “pick the red cube and place it in the bin”</li>
+</ul>
+<h4 id="dataset-iteration-journey-same-as-act">Dataset iteration journey (same as ACT)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dataset-iteration-journey-same-as-act" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>v2:</strong> Better spatial approach than ACT at same stage (~4-5cm above cube). Understands grasping intention (tries to close gripper when cube centered in wrist camera). But doesn’t descend enough. Same contrast hypothesis as ACT.</li>
+<li><strong>v3 (25k steps, 4 GPUs):</strong> 4 successes out of 16 tested (25%). Recovery completely absent. 45° orientation blocks the policy (keeps wrist straight instead of rotating).</li>
+<li><strong>v4 (20k steps, 4 GPUs):</strong> Final dataset. Performance improved but key gaps remain.</li>
+</ul>
+<h4 id="what-worked-2">What worked<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-worked-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Consistent performance across orientations.</strong> SmolVLA achieves 58% in-distribution at both 0° and 45°, suggesting the pre-trained backbone provides some orientation invariance.</li>
+<li><strong>Understands the task globally.</strong> Many near-successes (cube above box, dropped at the edge): the policy knows what to do and where to go. The failure is precision, not comprehension.</li>
+<li><strong>OOD orientation is moderate (50%)</strong> — better than might be expected for a fine-tuned model with limited orientation training data.</li>
+</ul>
+<h4 id="what-didnt-work-2">What didn’t work<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-didnt-work-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>0% with distractor (4 episodes).</strong> Despite 3 near-successes, SmolVLA fails entirely when a second object is in the scene. Counter-intuitive given VLA’s reputation for generalization — but this variation was absent from the fine-tuning data (Phase 1 only).</li>
+<li><strong>Recovery remains weak.</strong> When the first grasp fails, SmolVLA tries to reposition above the cube but consistently misses. More recovery episodes in the dataset would likely fix this.</li>
+<li><strong>Lower absolute performance than ACT.</strong> 58% vs 83% in-distribution. On this task and this data volume, ACT’s specialization beats SmolVLA’s generalism.</li>
+</ul>
+<h4 id="surprises">Surprises<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#surprises" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>The distractor result is the most striking finding.</strong> The expectation was that SmolVLA would generalize better thanks to pre-training. Instead, ACT (trained from scratch on the same data) was far more robust to distractors. This suggests fine-tuning on Phase 1 only slightly “overwrites” the pre-training robustness.</li>
+<li><strong>Near-success rate is a better signal than success rate</strong> for SmolVLA. Many 0%-success conditions actually have 75% near-success, indicating the policy is behaviorally correct but imprecise.</li>
+</ul>
+<h4 id="critical-assessment-2">Critical assessment<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#critical-assessment-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>SmolVLA’s results are lower than expected on this specific task and data volume. The hypothesis: for a <strong>fixed-setup single task with ~80 episodes</strong>, ACT’s direct specialization wins. SmolVLA’s advantages (language conditioning, generalization) would likely show at larger data scale or on multi-task settings. The counter-intuitive distractor failure points to a fundamental tradeoff: fine-tuning on narrow data can erode the generalist robustness the pre-trained backbone provides.</p>
+<blockquote>
+<p><strong>Revised recommendation:</strong> For a fixed single-task setup with &lt;150 demos, prefer ACT. SmolVLA’s generalist advantages need larger or more diverse fine-tuning data to manifest. If adding Phase 2 robustness demos (lighting, distractor), SmolVLA would likely recover its expected generalization advantage. The crossover point is somewhere around 150–200 diverse demos.</p>
+</blockquote>
+<hr/>
+<h3 id="cross-algorithm-comparison--so-100-results">Cross-algorithm comparison — SO-100 results<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cross-algorithm-comparison--so-100-results" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Algorithm</th><th>Sim result</th><th>Real ID</th><th>Real OOD</th><th>Distractor</th><th>Data</th><th>Key finding</th></tr></thead><tbody><tr><td><strong>SAC</strong></td><td><strong>92%</strong> (50 eps)</td><td>N/A (sim only)</td><td>N/A</td><td>N/A</td><td>0 demos (reward)</td><td>3-subtask decomp + recovery = 92%</td></tr><tr><td><strong>ACT</strong></td><td>—</td><td><strong>83%</strong> (0°) / <strong>92%</strong> (45°)</td><td><strong>100%</strong> OOD at 45°</td><td><strong>75%</strong> (3/4)</td><td>~111 demos</td><td>Data iteration > algorithm choice</td></tr><tr><td><strong>SmolVLA</strong></td><td>—</td><td><strong>58%</strong> (both orient.)</td><td>50% OOD at 45°</td><td><strong>0%</strong> (3 near-success)</td><td>~111 demos</td><td>Fine-tuning on narrow data erodes pre-training robustness</td></tr></tbody></table></div>
+<p><strong>Key meta-finding:</strong> The dataset iteration v1→v2→v3→v4 drove more performance improvement than any algorithmic change. ACT outperforms SmolVLA at this data volume; the advantage likely reverses with larger/more diverse fine-tuning data.</p>
+<hr/>
+<h2 id="related-pages">Related pages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#related-pages" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="./overview" class="internal internal-link" data-slug="overview">overview</a> — conceptual framing of the three families</li>
+<li><a href="./pick-and-place" class="internal internal-link" data-slug="pick-and-place">pick-and-place</a> — task-specific synthesis for P&amp;P</li>
+<li><a href="./reinforcement-learning" class="internal internal-link" data-slug="reinforcement-learning">reinforcement-learning</a> — RL algorithm details</li>
+<li><a href="./imitation-learning" class="internal internal-link" data-slug="imitation-learning">imitation-learning</a> — IL algorithm details</li>
+<li><a href="./vision-language-action-models" class="internal internal-link" data-slug="vision-language-action-models">vision-language-action-models</a> — VLA model details</li>
+<li><a href="./hybrid-il-rl" class="internal internal-link" data-slug="hybrid-il-rl">hybrid-il-rl</a> — hybrid IL+RL methods</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-26" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#decision-guide--choosing-a-robot-learning-approach" data-for="decision-guide--choosing-a-robot-learning-approach">Decision Guide — Choosing a Robot Learning Approach</a></li><li class="depth-1"><a href="#step-1--clarify-your-constraints" data-for="step-1--clarify-your-constraints">Step 1 — Clarify your constraints</a></li><li class="depth-1"><a href="#step-2--decision-flowchart" data-for="step-2--decision-flowchart">Step 2 — Decision flowchart</a></li><li class="depth-1"><a href="#step-3--full-recommendation-table" data-for="step-3--full-recommendation-table">Step 3 — Full recommendation table</a></li><li class="depth-1"><a href="#step-4--family-profiles-advantages-limits-training-deployment" data-for="step-4--family-profiles-advantages-limits-training-deployment">Step 4 — Family profiles (advantages, limits, training, deployment)</a></li><li class="depth-2"><a href="#-reinforcement-learning-rl" data-for="-reinforcement-learning-rl">🎯 Reinforcement Learning (RL)</a></li><li class="depth-2"><a href="#-imitation-learning-il" data-for="-imitation-learning-il">🎭 Imitation Learning (IL)</a></li><li class="depth-2"><a href="#-vision-language-action-models-vlas" data-for="-vision-language-action-models-vlas">🌐 Vision-Language-Action Models (VLAs)</a></li><li class="depth-1"><a href="#step-5--how-to-evaluate--go-to-evaluation-protocol" data-for="step-5--how-to-evaluate--go-to-evaluation-protocol">Step 5 — How to evaluate — go to evaluation-protocol</a></li><li class="depth-1"><a href="#step-6--hybrid-strategies-worth-knowing" data-for="step-6--hybrid-strategies-worth-knowing">Step 6 — Hybrid strategies worth knowing</a></li><li class="depth-1"><a href="#step-7--rex-return-on-experience-so-100-pick-and-place" data-for="step-7--rex-return-on-experience-so-100-pick-and-place">Step 7 — REX: Return on Experience (SO-100 Pick-and-Place)</a></li><li class="depth-2"><a href="#sac--soft-actor-critic" data-for="sac--soft-actor-critic">SAC — Soft Actor-Critic</a></li><li class="depth-2"><a href="#act--action-chunking-with-transformers" data-for="act--action-chunking-with-transformers">ACT — Action Chunking with Transformers</a></li><li class="depth-2"><a href="#smolvla--small-vision-language-action-model" data-for="smolvla--small-vision-language-action-model">SmolVLA — Small Vision-Language-Action Model</a></li><li class="depth-2"><a href="#cross-algorithm-comparison--so-100-results" data-for="cross-algorithm-comparison--so-100-results">Cross-algorithm comparison — SO-100 results</a></li><li class="depth-1"><a href="#related-pages" data-for="related-pages">Related pages</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-0" class="overflow"><li><a href="./algo-act" class="internal">algo-act</a></li><li><a href="./algo-smolvla" class="internal">algo-smolvla</a></li><li><a href="./evaluation-protocol" class="internal">evaluation-protocol</a></li><li><a href="./imitation-learning" class="internal">imitation-learning</a></li><li><a href="./" class="internal">index</a></li><li><a href="./overview" class="internal">overview</a></li><li><a href="./pick-and-place" class="internal">pick-and-place</a></li><li><a href="./reinforcement-learning" class="internal">reinforcement-learning</a></li><li><a href="./results" class="internal">results</a></li><li><a href="./vision-language-action-models" class="internal">vision-language-action-models</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="./static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript-503771fb.js" type="module" data-persist="true"></script></html>
