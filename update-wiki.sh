@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "📂 Copying wiki files..."
-cp -r "/Users/christelle.nollet/Documents/Obsidian Vault/wiki/." ~/robotics-wiki-v2/content/
+cp -r "/Users/christelle.nollet/Documents/Obsidian Vault/wiki/." "/Users/christelle.nollet/Documents/Obsidian Vault/robotics-wiki-v2/content/"
 
 echo "📝 Committing changes..."
-cd ~/robotics-wiki-v2
+cd "/Users/christelle.nollet/Documents/Obsidian Vault/robotics-wiki-v2"
 git add .
 git commit -m "Update wiki $(date '+%Y-%m-%d')"
 

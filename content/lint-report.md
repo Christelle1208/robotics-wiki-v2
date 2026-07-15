@@ -1,20 +1,74 @@
 # Wiki Health Report
 
-**Generated:** 2026-05-22 | **Scope:** all 35 files in `wiki/` + 57 files in `raw_sources/`
-**Next scheduled run:** 2026-05-29
+**Generated:** 2026-06-25 | **Scope:** all 42 files in `wiki/` + 60+ files in `raw_sources/`
+**Previous report:** 2026-05-22 | **Next scheduled run:** 2026-07-02
 
 ---
 
 ## Summary
 
-| Category | Issues found | Severity |
-|----------|-------------|----------|
-| Contradictions | 3 | 🔴 Fix immediately |
-| Missing metrics (source vs wiki) | 3 | 🟡 Update soon |
-| Orphan / low-inbound algo pages | 3 | 🟡 Add links |
-| Concepts needing dedicated pages | 7 | 🟡 Create pages |
-| Potentially outdated framing | 2 | 🟢 Review |
-| Broken internal references | 1 | 🔴 Fix immediately |
+| Category | Issues found | Severity | Status |
+|----------|-------------|----------|---------|
+| Critical contradictions & stale status markers | 3 | 🔴 Fix immediately | **NEW** |
+| Cross-reference gaps | 4 | 🟡 Update soon | **NEW** |
+| Missing metrics (source vs wiki) | 3 | 🟡 Update soon | Previous |
+| Orphan / low-inbound algo pages | 3 | 🟡 Add links | Previous |
+| Concepts needing dedicated pages | 7 | 🟡 Create pages | Previous |
+| Potentially outdated framing | 2 | 🟢 Review | Previous |
+| Broken internal references | 1 | 🔴 Fix immediately | Previous |
+
+---
+
+## 🔴 Critical Issues (New — 2026-06-25)
+
+### CRIT-1 · Stale "Pending" status markers for completed experiments
+
+**Files:** `imitation-learning.md:42-43` and `reinforcement-learning.md:40`
+
+`imitation-learning.md` marks both ACT and SmolVLA experiments as "🔄 Pending" but both are actually ✅ completed on Dataset_v4:
+
+```markdown
+| Method | Status | Key question |
+|--------|--------|-------------|
+| ACT | 🔄 Pending | ...
+| SmolVLA | 🔄 Pending | ...
+```
+
+**Actual results** (from `results.md`):
+- **ACT:** 83% ID @ 0° / 92% ID @ 45° / 75% distractor
+- **SmolVLA:** 58% ID / 0% distractor
+
+**Fix:** Update both rows in `imitation-learning.md` to:
+```markdown
+| ACT | ✅ Done (Dataset_v4) | 83% ID, 75% distractor resilience |
+| SmolVLA | ✅ Done (Dataset_v4) | 58% ID, 0% distractor (full fine-tune issue) |
+```
+
+Also add: → See `[[results]]` for full per-condition breakdown and `[[algo-act]]`, `[[algo-smolvla]]` for detailed analysis.
+
+---
+
+### CRIT-2 · Real-hardware RL results marked as pending but never completed
+
+**File:** `reinforcement-learning.md:40`
+
+Current text: `*[Real-hardware results pending — will be added here once available]*`
+
+**Issue:** SAC was only evaluated in simulation (MuJoCo); real-hardware RL was never attempted. The marker makes it sound like work-in-progress rather than a completed decision.
+
+**Fix:** Replace with:
+> SAC RL evaluation in this project is **simulation-only** (MuJoCo, 92% on pick-and-place with task decomposition). Real-hardware RL remains future work — see `[[decision-guide]]` Step 4 RL section for real-world deployment challenges and why simulation-first is the standard approach.
+
+---
+
+### CRIT-3 · SmolVLA distractor failure needs clearer attribution
+
+**Files:** `results.md:98`, `algo-smolvla.md:143`, `vision-language-action-models.md:44`
+
+The distractor result (0% with 3 near-successes) is described consistently across pages, BUT the **root-cause hypothesis** (full fine-tuning eroded pretrained robustness) is buried in `algo-smolvla.md` lines 104–106. A reader of `results.md` alone won't understand *why* this anomaly occurred or what the proposed fix is.
+
+**Fix:** In `results.md` Section 4 (SmolVLA), add after line 98:
+> **Diagnostic note:** The 0% distractor result is unexpected given 75% near-success rate. Leading hypothesis: full fine-tuning (Option C in `[[algo-smolvla]]`) may have eroded the pretrained backbone's robustness to novel objects. Proposed follow-up: frozen-backbone fine-tuning (Option A/B) with explicit distractor training data. See `[[algo-smolvla]]` "Fine-Tuning SmolVLA — The Options" for the full reasoning.
 
 ---
 
@@ -70,6 +124,79 @@ The anchor `#Composable-DRL-SQL` will not resolve in Obsidian — the actual hea
 
 **Fix:** Replace the anchor with an explicit wikilink:
 > "SAC balances exploration and exploitation... (see [[algo-sql-sac]] for SQL foundations)"
+
+---
+
+## 🟡 Cross-Reference & Navigation Gaps (New — 2026-06-25)
+
+### CRG-1 · Contact-rich manipulation scattered across 3 pages with no hub
+
+**Files:** `imitation-learning.md:72–88` (full survey), `grasping-and-manipulation.md:30–37` (synthesis), `vision-language-action-models.md:23` (mention)
+
+The contact-rich survey section is detailed and comprehensive but has no entry point. Pages reference it via anchor links (`[[imitation-learning#contact-rich-survey]]`) but there's no dedicated **contact-rich-tasks** or **contact-rich-manipulation** page as a hub. A user specifically interested in "assembly tasks" or "force feedback" must hunt across 3 pages.
+
+**Fix:** Create `contact-rich-tasks.md` as a topic page that:
+1. Summarizes the survey (from `imitation-learning.md`)
+2. Categorizes tasks: assembly, insertion, polishing, surgical
+3. Cross-references relevant algorithms: `[[algo-hitl-rl]]`, `[[algo-awac]]`, `[[algo-act]]` (Bi-ACT, Comp-ACT)
+4. Lists sensor modalities: force/torque, tactile (research-only), EMG
+5. Links to: `[[imitation-learning#contact-rich-survey]]`, `[[grasping-and-manipulation]]`, papers
+
+---
+
+### CRG-2 · Action generation methods not centralized
+
+**Files:** `imitation-learning.md:53` (glossary), `vision-language-action-models.md:98` (trajectory), `algo-smolvla.md:47` (implementation), `algo-openvla.md` (contrast to autoregressive)
+
+Flow Matching, Diffusion Policy (DDPM), and Autoregressive token generation are three fundamentally different ways to generate robot actions, but they're scattered across pages with no unified comparison. A reader comparing π0 (flow matching) vs OpenVLA (autoregressive) vs Diffusion Policy has to piece together technical trade-offs from 4+ pages.
+
+**Fix:** Add a brief section to `vision-language-action-models.md` after line 98 (or create `action-generation.md`):
+
+```markdown
+## Action Generation Paradigms
+
+| Method | Examples | Speed | Quality | Implementation complexity |
+|--------|----------|-------|---------|--------------------------|
+| **Autoregressive** | OpenVLA, RT-2, RT-1 | Slower (7B at 1-6Hz) | Good for learned distributions | O(T) steps for T actions |
+| **Diffusion (DDPM)** | Diffusion Policy, ACT-Diff | Moderate (50-100 steps) | Multimodal, high quality | Scores learned via diffusion |
+| **Flow Matching** | π0, SmolVLA, X-VLA, TinyVLA | Fastest (10 steps) | Comparable to diffusion | Deterministic flow field |
+| **Single-step (Deterministic)** | Traditional IL (BC) | Fastest | Lower (averaging problem) | Simplest |
+
+See: [[algo-diffusion-policy]], [[algo-smolvla]], [[algo-openvla]]
+```
+
+---
+
+### CRG-3 · "Generalization" used in 3 different senses without central definition
+
+**Files:** Multiple (`vision-language-action-models.md:13`, `reinforcement-learning.md:25`, `decision-guide.md:16`, `evaluation-protocol.md`)
+
+- "Semantic generalization" = understanding object categories (VLA strength)
+- "Spatial generalization" = handling position/orientation shifts (RL & VLA)
+- "No generalization" = task-specific (RL weakness)
+
+No central glossary; readers must infer meaning from context.
+
+**Fix:** Create `glossary.md` with key terms:
+- **Semantic generalization:** Understanding *what* (object classes, scene structure, language). VLA unique capability via internet pretraining.
+- **Spatial generalization:** Handling position, orientation, and scale variations. RL (reward-shaped) and VLA (pretrained vision) both strong; IL weak.
+- **Domain generalization:** Transfer across object types, lighting, camera angles, embodiments. VLA > IL >> RL.
+- **Task-specific:** Single-task optimization. RL & IL specialize here; VLAs also excel.
+
+---
+
+### CRG-4 · Low-reference topic pages need more internal links
+
+**Pages with ≤2 inbound links (excluding nav pages):**
+
+| Page | Inbound links | Should also link from |
+|------|---|---|
+| `[[evaluation-protocol]]` | 9 | `[[results]]` (intro), `[[pick-and-place]]` (methodology section) |
+| `[[trajectory-planning]]` | 17 | `[[pick-and-place]]` (industrial P&P), `[[simulation-and-tools]]` (planning sim) |
+| `[[simulation-and-tools]]` | 41 | `[[decision-guide]]` Step 2 (simulator selection) |
+| `[[world-models]]` | 23 | `[[decision-guide]]` Step 4 (emerging RL frontier) |
+
+**Fix:** Add 1–2 strategic backlinks to each (see specific suggestions in parentheses).
 
 ---
 
@@ -212,24 +339,87 @@ Both pages cover related content (SQL is the precursor to SAC). Verify that `alg
 
 ---
 
-## Fixes Prioritized by Effort
+## Fixes Prioritized by Effort & Impact
 
-| Priority | Fix | Effort |
-|----------|-----|--------|
-| 🔴 Now | C-3 · Add GF-VLA placement accuracy (89%) to 2 pages | 2 edits |
-| 🔴 Now | B-1 · Fix broken anchor in `reinforcement-learning.md` | 1 edit |
-| 🔴 Now | C-2 · Clarify VLA-RL "4.5% on 40 tasks" phrasing | 1 edit |
-| 🔴 Now | C-1 · Add evaluation-context footnotes to RT-2-X scores | 2 edits |
-| 🟡 Soon | M-1 · Add GigaWorld π0-5 result to `world-models.md` | 1 edit |
-| 🟡 Soon | M-2 · Add CGRU module to Mamba2Diff entry | 1 edit |
-| 🟡 Soon | M-3 · Add graph accuracy to GF-VLA entries | 2 edits |
-| 🟡 Soon | O-1 · Add SafeVLA to `reinforcement-learning.md` Safe RL section | 1 edit |
-| 🟡 Soon | F-1 · Update VLA paradigm intro tradeoff description | 1 edit |
-| 🟡 Soon | S-1 · Add Molmo family to VLA comparison table | 1 edit |
-| 🟡 Later | O-2, O-3 · Extra links for NAMR-RRT and QLoRA | 2 edits |
-| 🟢 Later | Create algo pages: SmolVLA, TinyVLA, X-VLA, GF-VLA | 4 new files |
-| 🟢 Later | Create algo pages: GigaWorld-Policy, Mamba2Diff, Cosmos-Reason1 | 3 new files |
+### 🔴 Critical — Complete Today
+
+| Fix | File | Effort | Impact |
+|-----|------|--------|--------|
+| CRIT-1 · Update "Pending" to "Done" for ACT/SmolVLA | `imitation-learning.md:42-43` | 2 edits | High — fixes false status |
+| CRIT-2 · Clarify real-hardware RL is completed, not pending | `reinforcement-learning.md:40` | 1 edit | Medium — fixes confusing signal |
+| CRIT-3 · Link distractor anomaly to root-cause hypothesis | `results.md:98` | 1 edit | High — clarifies key finding |
+| B-1 · Fix broken anchor in `reinforcement-learning.md` | `reinforcement-learning.md:17` | 1 edit | Low — link repair |
+| C-2 · Clarify VLA-RL "4.5% on 40 tasks" phrasing | `vision-language-action-models.md:99` | 1 edit | Medium — removes ambiguity |
+
+**Total: 6 edits, ~15 min**
 
 ---
 
-*Lint methodology: (1) grep-based inbound link count for all 23 algo pages and 10 topic pages; (2) cross-file grep for key numeric claims; (3) raw source abstract spot-check for 8 papers; (4) manual review of all topic page `*Algorithm:*` and `*Tags:*` fields read in this session.*
+### 🟡 Important — This Week
+
+| Fix | File | Effort | Impact |
+|-----|------|--------|--------|
+| C-1 · Add evaluation-context footnotes to RT-2-X scores | `algo-octo.md`, `algo-openvla.md` | 2 edits | Low — cosmetic |
+| C-3 · Add GF-VLA placement accuracy (89%) | `vision-language-action-models.md`, `grasping-and-manipulation.md` | 2 edits | Medium — missing metric |
+| CRG-1 · Create `contact-rich-tasks.md` hub page | New file | 30 min | High — improves navigation |
+| CRG-2 · Add action generation methods comparison | `vision-language-action-models.md` or new file | 20 min | High — clarifies paradigm differences |
+| CRG-3 · Create `glossary.md` for generalization types | New file | 20 min | Medium — improves vocabulary consistency |
+| CRG-4 · Add backlinks to low-reference pages | 4 files | 5 edits | Medium — improves discoverability |
+| M-1 · Add GigaWorld π0-5 result | `world-models.md` | 1 edit | Low |
+| M-2 · Add CGRU module to Mamba2Diff | `imitation-learning.md` | 1 edit | Low |
+| M-3 · Add graph accuracy to GF-VLA | 2 files | 2 edits | Low |
+| O-1 · Add SafeVLA to Safe RL section | `reinforcement-learning.md` | 1 edit | Medium |
+| F-1 · Update VLA paradigm intro tradeoff | `vision-language-action-models.md:14` | 1 edit | Low |
+| S-1 · Add Molmo family to VLA comparison table | `vision-language-action-models.md` | 1 edit | Low |
+
+**Total: ~35 edits + 3 new files, ~2 hours**
+
+---
+
+### 🟢 Nice-to-Have — Future Sessions
+
+| Fix | Type | Effort | Impact |
+|-----|------|--------|--------|
+| Create algo pages: SmolVLA, TinyVLA, X-VLA, GF-VLA | 4 new files | 4 hrs | High — completes VLA family docs |
+| Create algo pages: GigaWorld-Policy, Mamba2Diff, Cosmos | 3 new files | 3 hrs | Medium — emerging techniques |
+| O-2, O-3 · Extra backlinks for NAMR-RRT and QLoRA | 2 edits | 5 min | Low — minor navigation |
+| Add Advantages/Disadvantages to 5 more algo pages | 5 edits | 30 min | Medium — consistency |
+
+---
+
+---
+
+## 📊 Wiki Health Metrics (2026-06-25)
+
+| Metric | Value | Trend | Status |
+|--------|-------|-------|--------|
+| **Total pages** | 42 | +7 since 2026-05-22 | ✅ Growing steadily |
+| **Algorithm pages (algo-*)** | 27 | +6 | ✅ |
+| **Topic/synthesis pages** | 10 | same | ✅ |
+| **Navigation pages** | 5 | same | ✅ |
+| **Dead wiki links** | 0 | ✅ unchanged | ✅ Perfect |
+| **Orphan pages** | 0 | ✅ unchanged | ✅ Perfect |
+| **Critical issues (status/contradiction)** | 3 | ⚠️ NEW | 🔴 Action required |
+| **Pages with completed results** | 5 | +1 (SmolVLA done) | ✅ |
+| **Cross-reference density** | High (avg 8 links/page) | Stable | ✅ |
+
+---
+
+## Lint Methodology
+
+**This report was generated by:**
+1. **Link analysis:** Extracted all `[[...]]` references; counted inbound links per page
+2. **Status consistency:** Cross-checked "Pending" and "Done" markers across `imitation-learning.md`, `reinforcement-learning.md`, `results.md`, `overview.md`
+3. **Results audit:** Compared success rate numbers across 5 pages for consistency (SAC 92%, ACT 83–94%, SmolVLA 58%, PPO timing)
+4. **Concept discovery:** Identified frequently-mentioned topics without dedicated pages (contact-rich, flow matching, action generation)
+5. **Raw source spot-checks:** Verified claims in 8 papers for missing metrics or outdated framing
+6. **Cross-reference depth:** Evaluated whether synthesis pages (decision-guide, evaluation-protocol, results) are properly linked from algorithmic pages
+
+**Excluded from this analysis:**
+- Prose quality, tone, or length
+- PDF/image handling (all images stored locally)
+- Git history or version control
+
+---
+
+*Next report: 2026-07-02 (or after 10 new raw-source papers ingested)*
