@@ -107,6 +107,7 @@ Detailed pages covering mechanics, intuition, evaluation, results, and pros/cons
 |------|-----------|---------|
 | [[algo-qlora]] | QLoRA | 4-bit NF4 + LoRA; fine-tune 65B LLM on single 48GB GPU; enables VLA fine-tuning |
 | [[algo-molmospaces]] | MolmoSpaces | 230k environments, 130k objects, 42M grasps; sim-to-real R=0.96; simulator-agnostic |
+| [[algo-sarm]] | SARM | Stage-aware reward modeling for long-horizon contact-rich IL; RA-BC data filtering; T-shirt folding 67% from crumpled |
 
 ---
 

@@ -4,6 +4,12 @@ Append-only record of wiki operations. Format: `## [YYYY-MM-DD] operation | Titl
 
 ---
 
+## [2026-07-20] ingest | SARM: Stage-Aware Reward Modeling for Long Horizon Robot Manipulation
+
+Created new algo page [[algo-sarm]] (ICLR 2026). Key contribution: semantic task decomposition + RA-BC data filtering outperforms vanilla BC on long-horizon contact-rich IL. Main results: T-shirt folding 83% from flattened, 67% from crumpled (vs 0-8% vanilla BC). Updated [[imitation-learning]] status table (ACT/SmolVLA marked ✅ Done), added "Data Quality & Reward Modeling" synthesis note flagging SARM as addressing quality bottleneck. Updated [[grasping-and-manipulation]] contact-rich section to include SARM as emerging solution for deformable object manipulation. Added to [[index.md]] algorithm table. Integrated into lint-report metrics.
+
+---
+
 ## [2026-07-15] correction | Dataset_v5 episode count fixed to 131
 Corrected Dataset_v5 total from an earlier mistaken ~111/121 estimate to the actual 131 episodes, and filled in the v5 row of the dataset iteration table (section 2) with its real composition: 60 ID (fixed orientation, split by row), 24 variable-orientation, 10 lighting-change, 12 distractor (scissors), 15 recovery, 10 combined lighting+distractor+recovery. Flagged that several of these training-time variations (distractor object, lighting delta, recovery scenarios) overlap in kind with conditions tested at evaluation time — a near-OOD validity caveat already discussed in [[evaluation-protocol]] (e.g. the eval distractor object must differ from the training distractor to count as genuine near-OOD, which it does here: training used scissors, evaluation used pink tape / blue object).
 

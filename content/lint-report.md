@@ -389,19 +389,19 @@ Both pages cover related content (SQL is the precursor to SAC). Verify that `alg
 
 ---
 
-## 📊 Wiki Health Metrics (2026-06-25)
+## 📊 Wiki Health Metrics (2026-07-20)
 
 | Metric | Value | Trend | Status |
 |--------|-------|-------|--------|
-| **Total pages** | 42 | +7 since 2026-05-22 | ✅ Growing steadily |
-| **Algorithm pages (algo-*)** | 27 | +6 | ✅ |
+| **Total pages** | 43 | +1 (SARM added) | ✅ Growing steadily |
+| **Algorithm pages (algo-*)** | 28 | +1 (SARM) | ✅ |
 | **Topic/synthesis pages** | 10 | same | ✅ |
 | **Navigation pages** | 5 | same | ✅ |
 | **Dead wiki links** | 0 | ✅ unchanged | ✅ Perfect |
 | **Orphan pages** | 0 | ✅ unchanged | ✅ Perfect |
-| **Critical issues (status/contradiction)** | 3 | ⚠️ NEW | 🔴 Action required |
-| **Pages with completed results** | 5 | +1 (SmolVLA done) | ✅ |
-| **Cross-reference density** | High (avg 8 links/page) | Stable | ✅ |
+| **Critical issues fixed** | 2/3 | CRIT-1, CRIT-2 done | ✅ |
+| **Remaining critical** | 1 | CRIT-3 (distractor link) | 🟡 Pending |
+| **Cross-reference density** | High (avg 9+ links/page) | Improved | ✅ |
 
 ---
 

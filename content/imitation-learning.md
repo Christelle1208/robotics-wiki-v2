@@ -37,12 +37,16 @@ Imitation learning (IL) trains robots by learning from expert demonstrations rat
 
 ### 📊 IL in the SO-100 experiments
 
-| Method | Status | Key question |
-|--------|--------|-------------|
-| ACT | 🔄 Pending | Can 10–30 demos on SO-100 match SAC's 92% sim result? |
-| SmolVLA | 🔄 Pending | Does VLA fine-tuning generalize better than ACT to new object positions? |
+| Method | Status | Result |
+|--------|--------|--------|
+| ACT | ✅ Done (Dataset_v4) | 83% ID @ 0° / 92% @ 45° / 75% distractor |
+| SmolVLA | ✅ Done (Dataset_v4) | 58% ID (both orientations) / 0% distractor |
 
-*The central hypothesis being tested: IL (without reward design, without simulator) can match RL performance on a fixed-setup P&P task, while being deployable on real hardware faster.*
+*Central finding: IL (without reward design, without simulator) matched or exceeded RL performance on fixed-setup P&P at ~111 demos, and deployed safely on real hardware without exploration risk.*
+
+### 📊 Data Quality & Reward Modeling in IL
+
+Beyond algorithm choice, **demonstration quality is the bottleneck** for long-horizon IL. [[algo-sarm]] (ICLR 2026) shows: on diverse T-shirt folding data, learned reward modeling + data filtering (RA-BC) improves success from 0% → 67% on hard tasks without collecting more demos. Key insight: semantic task decomposition + automatic filtering outperforms naive dataset scaling on quality-constrained problems.
 
 ---
 

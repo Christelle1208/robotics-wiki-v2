@@ -29,12 +29,17 @@ In structured environments (fixed bin, known objects, consistent lighting), RL a
 
 ### The contact-rich gap
 
-The most important open challenge in manipulation is contact-rich tasks: assembly, peg-in-hole, surface polishing, surgical procedures. These require:
+The most important open challenge in manipulation is contact-rich tasks: assembly, peg-in-hole, surface polishing, surgical procedures — especially deformable object manipulation (cloth, rope, foam). These require:
 1. Force/torque feedback (not just position)
 2. Tactile sensing for fine-grained contact (still mostly research hardware)
 3. Sub-millimeter precision that VLAs currently cannot provide
+4. Handling of variable geometry (deformable objects don't have fixed end-states)
 
-Current best approaches: force-coupled DMPs, ACT with force augmentation (Bi-ACT, Comp-ACT), and HITL-RL for iterative refinement. VLAs are advancing but not yet competitive on precision assembly.
+**Current best approaches:**
+- Force-coupled DMPs, ACT with force augmentation (Bi-ACT, Comp-ACT), and HITL-RL for precision assembly
+- [[algo-sarm]] (ICLR 2026) for deformable object IL: semantic reward modeling + RA-BC data filtering achieves 67% on T-shirt folding from crumpled state (vs 0% vanilla BC) by filtering suboptimal demonstrations automatically
+
+VLAs are advancing but still weak on both precision and deformable dynamics.
 
 ---
 
