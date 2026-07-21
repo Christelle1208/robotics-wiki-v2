@@ -75,6 +75,7 @@ Detailed pages covering mechanics, intuition, evaluation, results, and pros/cons
 
 | Page | Algorithm | Summary |
 |------|-----------|---------|
+| [[algo-dagger]] | DAgger | Iterative dataset aggregation; expert corrections on policy-visited states; reduces BC's O(T²) error to O(T) |
 | [[algo-act]] | ACT | Action Chunking with Transformers + CVAE; 80-90% bimanual success from 10-min demos |
 | [[algo-diffusion-policy]] | Diffusion Policy | DDPM-based visuomotor policy; +46.9% avg over SOTA; handles multimodal distributions |
 | [[algo-vq-bet]] | VQ-BeT | Hierarchical vector-quantized action tokens; 5× faster than Diffusion Policy |

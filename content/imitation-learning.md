@@ -123,6 +123,20 @@ Focused survey on IL specifically for **contact-rich manipulation** — tasks in
 
 ## Landmark Papers
 
+### A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning (DAgger) → [[algo-dagger]]
+**Ross, Gordon, Bagnell — Carnegie Mellon, AISTATS 2011**
+
+Introduced **DAgger (Dataset Aggregation)**, the foundational solution to distribution shift in IL. Core insight: BC trains only on expert-visited states but tests on policy-induced states. Error bounds scale as T² (quadratic in horizon). DAgger fixes this iteratively: run learned policy, query expert for corrections on policy-visited states, retrain on aggregated dataset. Error bound improves to linear in T.
+
+Key results:
+- Autonomous driving (Super Tux Kart): BC crashes ~5 sec; DAgger converges after ~5 iterations
+- Video game (Super Mario Bros.): Reaches expert level vs. BC failure on early levels
+- Structured prediction (OCR): Outperforms SEARN/GAIL baselines
+
+*Algorithm:* [[algo-dagger|DAgger]], Follow-The-Leader (no-regret online learning) | *Tags:* distribution shift, iterative learning, expert feedback, structured prediction, AISTATS 2011
+
+---
+
 ### Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware (ACT) → [[algo-act]]
 **Zhao et al., 2023**
 

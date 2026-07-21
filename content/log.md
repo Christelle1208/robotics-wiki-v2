@@ -4,6 +4,12 @@ Append-only record of wiki operations. Format: `## [YYYY-MM-DD] operation | Titl
 
 ---
 
+## [2026-07-21] ingest | DAgger: A Reduction of Imitation Learning to No-Regret Online Learning
+
+Created new algo page [[algo-dagger]] (AISTATS 2011). Foundational paper on distribution shift in IL: BC trains on expert states but tests on policy-induced states, causing T² error growth. DAgger solves this by iteratively running current policy, collecting expert corrections on policy-visited states, retraining on aggregated dataset (T linear error bound). Results: autonomous driving (BC crashes ~5s, DAgger succeeds after ~5 iterations), structured prediction (OCR). Updated [[imitation-learning]] Landmark Papers section to place DAgger first (chronological but logically foundational). Added to [[index.md]] algorithm table. Connected to [[algo-sarm]] as orthogonal solution to distribution shift (DAgger = iterative expert feedback; SARM = learned reward filtering).
+
+---
+
 ## [2026-07-20] ingest | SARM: Stage-Aware Reward Modeling for Long Horizon Robot Manipulation
 
 Created new algo page [[algo-sarm]] (ICLR 2026). Key contribution: semantic task decomposition + RA-BC data filtering outperforms vanilla BC on long-horizon contact-rich IL. Main results: T-shirt folding 83% from flattened, 67% from crumpled (vs 0-8% vanilla BC). Updated [[imitation-learning]] status table (ACT/SmolVLA marked ✅ Done), added "Data Quality & Reward Modeling" synthesis note flagging SARM as addressing quality bottleneck. Updated [[grasping-and-manipulation]] contact-rich section to include SARM as emerging solution for deformable object manipulation. Added to [[index.md]] algorithm table. Integrated into lint-report metrics.
